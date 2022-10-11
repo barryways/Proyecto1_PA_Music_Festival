@@ -54,7 +54,7 @@ namespace PAProyecto1CarlosDiego {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->BackColor = System::Drawing::SystemColors::MenuHighlight;
+			this->BackColor = System::Drawing::SystemColors::Info;
 			this->ClientSize = System::Drawing::Size(1095, 754);
 			this->Name = L"FrontEnd";
 			this->Text = L"FrontEnd";
