@@ -126,6 +126,8 @@
     <ClInclude Include="FrontEnd.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Queue.h" />
+    <ClInclude Include="Stack.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="FrontEnd.resx">
