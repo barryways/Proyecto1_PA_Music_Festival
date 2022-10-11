@@ -1,1 +1,4 @@
 E:\Carlos\source\repos\Programacion Avanzada\PA_Proyecto_1_Carlos_Diego\Debug\PA_Proyecto_1_Carlos_Diego.vcxproj.AssemblyReference.cache
+E:\Carlos\source\repos\Programacion Avanzada\PA_Proyecto_1_Carlos_Diego\Debug\PAProyecto1CarlosDiego.FrontEnd.resources
+E:\Carlos\source\repos\Programacion Avanzada\PA_Proyecto_1_Carlos_Diego\Debug\PA_Proyecto_1_Carlos_Diego.vcxproj.GenerateResource.cache
+E:\Carlos\source\repos\Programacion Avanzada\PA_Proyecto_1_Carlos_Diego\Debug\PA_Proyecto_1_Carlos_Diego.exe
