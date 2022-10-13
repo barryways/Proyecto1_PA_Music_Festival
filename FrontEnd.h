@@ -52,6 +52,8 @@ namespace PAProyecto1CarlosDiego {
 	private: System::Windows::Forms::Button^ button7;
 	private: System::Windows::Forms::Button^ button6;
 	private: System::Windows::Forms::Button^ button1;
+	private: System::Windows::Forms::Label^ label2;
+	private: System::Windows::Forms::Panel^ panel2;
 
 	private:
 		/// <summary>
@@ -76,17 +78,20 @@ namespace PAProyecto1CarlosDiego {
 			this->btnMedios = (gcnew System::Windows::Forms::Button());
 			this->pnlLogo = (gcnew System::Windows::Forms::Panel());
 			this->pnlReproductor = (gcnew System::Windows::Forms::Panel());
+			this->button7 = (gcnew System::Windows::Forms::Button());
+			this->button6 = (gcnew System::Windows::Forms::Button());
+			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->listBox2 = (gcnew System::Windows::Forms::ListBox());
 			this->listBox1 = (gcnew System::Windows::Forms::ListBox());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
-			this->button1 = (gcnew System::Windows::Forms::Button());
-			this->button6 = (gcnew System::Windows::Forms::Button());
-			this->button7 = (gcnew System::Windows::Forms::Button());
+			this->panel2 = (gcnew System::Windows::Forms::Panel());
+			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->pnlLateral->SuspendLayout();
 			this->pnlSubMenu->SuspendLayout();
 			this->pnlReproductor->SuspendLayout();
 			this->panel1->SuspendLayout();
+			this->panel2->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// pnlLateral
@@ -252,16 +257,73 @@ namespace PAProyecto1CarlosDiego {
 			this->pnlReproductor->Size = System::Drawing::Size(1074, 92);
 			this->pnlReproductor->TabIndex = 1;
 			// 
+			// button7
+			// 
+			this->button7->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(187)), static_cast<System::Int32>(static_cast<System::Byte>(134)),
+				static_cast<System::Int32>(static_cast<System::Byte>(252)));
+			this->button7->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button7.BackgroundImage")));
+			this->button7->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->button7->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->button7->FlatAppearance->BorderSize = 0;
+			this->button7->FlatAppearance->MouseDownBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(1)),
+				static_cast<System::Int32>(static_cast<System::Byte>(135)), static_cast<System::Int32>(static_cast<System::Byte>(134)));
+			this->button7->FlatAppearance->MouseOverBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(1)),
+				static_cast<System::Int32>(static_cast<System::Byte>(135)), static_cast<System::Int32>(static_cast<System::Byte>(134)));
+			this->button7->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button7->Location = System::Drawing::Point(525, 23);
+			this->button7->Name = L"button7";
+			this->button7->Size = System::Drawing::Size(75, 57);
+			this->button7->TabIndex = 2;
+			this->button7->UseVisualStyleBackColor = false;
+			// 
+			// button6
+			// 
+			this->button6->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(187)), static_cast<System::Int32>(static_cast<System::Byte>(134)),
+				static_cast<System::Int32>(static_cast<System::Byte>(252)));
+			this->button6->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button6.BackgroundImage")));
+			this->button6->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->button6->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->button6->FlatAppearance->BorderSize = 0;
+			this->button6->FlatAppearance->MouseDownBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(1)),
+				static_cast<System::Int32>(static_cast<System::Byte>(135)), static_cast<System::Int32>(static_cast<System::Byte>(134)));
+			this->button6->FlatAppearance->MouseOverBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(1)),
+				static_cast<System::Int32>(static_cast<System::Byte>(135)), static_cast<System::Int32>(static_cast<System::Byte>(134)));
+			this->button6->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button6->Location = System::Drawing::Point(433, 23);
+			this->button6->Name = L"button6";
+			this->button6->Size = System::Drawing::Size(77, 57);
+			this->button6->TabIndex = 1;
+			this->button6->UseVisualStyleBackColor = false;
+			// 
+			// button1
+			// 
+			this->button1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(187)), static_cast<System::Int32>(static_cast<System::Byte>(134)),
+				static_cast<System::Int32>(static_cast<System::Byte>(252)));
+			this->button1->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button1.BackgroundImage")));
+			this->button1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->button1->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->button1->FlatAppearance->BorderSize = 0;
+			this->button1->FlatAppearance->MouseDownBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(1)),
+				static_cast<System::Int32>(static_cast<System::Byte>(135)), static_cast<System::Int32>(static_cast<System::Byte>(134)));
+			this->button1->FlatAppearance->MouseOverBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(1)),
+				static_cast<System::Int32>(static_cast<System::Byte>(135)), static_cast<System::Int32>(static_cast<System::Byte>(134)));
+			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button1->Location = System::Drawing::Point(342, 23);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(75, 57);
+			this->button1->TabIndex = 0;
+			this->button1->UseVisualStyleBackColor = false;
+			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
 			this->label1->BackColor = System::Drawing::Color::Transparent;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Gadugi", 24, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)),
+			this->label1->Font = (gcnew System::Drawing::Font(L"Lucida Sans", 24, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)),
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			this->label1->ForeColor = System::Drawing::Color::Black;
-			this->label1->Location = System::Drawing::Point(296, 18);
+			this->label1->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
+			this->label1->Location = System::Drawing::Point(26, 25);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(338, 48);
+			this->label1->Size = System::Drawing::Size(371, 45);
 			this->label1->TabIndex = 2;
 			this->label1->Text = L"Editor de Playlist";
 			// 
@@ -272,9 +334,9 @@ namespace PAProyecto1CarlosDiego {
 			this->listBox2->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->listBox2->FormattingEnabled = true;
 			this->listBox2->ItemHeight = 16;
-			this->listBox2->Location = System::Drawing::Point(384, 261);
+			this->listBox2->Location = System::Drawing::Point(406, 191);
 			this->listBox2->Name = L"listBox2";
-			this->listBox2->Size = System::Drawing::Size(630, 272);
+			this->listBox2->Size = System::Drawing::Size(554, 288);
 			this->listBox2->TabIndex = 4;
 			// 
 			// listBox1
@@ -293,6 +355,7 @@ namespace PAProyecto1CarlosDiego {
 			// 
 			this->panel1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(18)), static_cast<System::Int32>(static_cast<System::Byte>(18)),
 				static_cast<System::Int32>(static_cast<System::Byte>(18)));
+			this->panel1->Controls->Add(this->label2);
 			this->panel1->Controls->Add(this->listBox1);
 			this->panel1->Dock = System::Windows::Forms::DockStyle::Right;
 			this->panel1->Location = System::Drawing::Point(1106, 0);
@@ -300,62 +363,29 @@ namespace PAProyecto1CarlosDiego {
 			this->panel1->Size = System::Drawing::Size(219, 557);
 			this->panel1->TabIndex = 0;
 			// 
-			// button1
+			// panel2
 			// 
-			this->button1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(3)), static_cast<System::Int32>(static_cast<System::Byte>(218)),
-				static_cast<System::Int32>(static_cast<System::Byte>(198)));
-			this->button1->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button1.BackgroundImage")));
-			this->button1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->button1->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->button1->FlatAppearance->BorderSize = 0;
-			this->button1->FlatAppearance->MouseDownBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(1)),
-				static_cast<System::Int32>(static_cast<System::Byte>(135)), static_cast<System::Int32>(static_cast<System::Byte>(134)));
-			this->button1->FlatAppearance->MouseOverBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(1)),
-				static_cast<System::Int32>(static_cast<System::Byte>(135)), static_cast<System::Int32>(static_cast<System::Byte>(134)));
-			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button1->Location = System::Drawing::Point(342, 23);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(75, 57);
-			this->button1->TabIndex = 0;
-			this->button1->UseVisualStyleBackColor = false;
+			this->panel2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(18)), static_cast<System::Int32>(static_cast<System::Byte>(18)),
+				static_cast<System::Int32>(static_cast<System::Byte>(18)));
+			this->panel2->Controls->Add(this->label1);
+			this->panel2->Dock = System::Windows::Forms::DockStyle::Top;
+			this->panel2->Location = System::Drawing::Point(251, 0);
+			this->panel2->Name = L"panel2";
+			this->panel2->Size = System::Drawing::Size(855, 100);
+			this->panel2->TabIndex = 5;
 			// 
-			// button6
+			// label2
 			// 
-			this->button6->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(3)), static_cast<System::Int32>(static_cast<System::Byte>(218)),
-				static_cast<System::Int32>(static_cast<System::Byte>(198)));
-			this->button6->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button6.BackgroundImage")));
-			this->button6->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->button6->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->button6->FlatAppearance->BorderSize = 0;
-			this->button6->FlatAppearance->MouseDownBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(1)),
-				static_cast<System::Int32>(static_cast<System::Byte>(135)), static_cast<System::Int32>(static_cast<System::Byte>(134)));
-			this->button6->FlatAppearance->MouseOverBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(1)),
-				static_cast<System::Int32>(static_cast<System::Byte>(135)), static_cast<System::Int32>(static_cast<System::Byte>(134)));
-			this->button6->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button6->Location = System::Drawing::Point(433, 23);
-			this->button6->Name = L"button6";
-			this->button6->Size = System::Drawing::Size(77, 57);
-			this->button6->TabIndex = 1;
-			this->button6->UseVisualStyleBackColor = false;
-			// 
-			// button7
-			// 
-			this->button7->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(3)), static_cast<System::Int32>(static_cast<System::Byte>(218)),
-				static_cast<System::Int32>(static_cast<System::Byte>(198)));
-			this->button7->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button7.BackgroundImage")));
-			this->button7->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->button7->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->button7->FlatAppearance->BorderSize = 0;
-			this->button7->FlatAppearance->MouseDownBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(1)),
-				static_cast<System::Int32>(static_cast<System::Byte>(135)), static_cast<System::Int32>(static_cast<System::Byte>(134)));
-			this->button7->FlatAppearance->MouseOverBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(1)),
-				static_cast<System::Int32>(static_cast<System::Byte>(135)), static_cast<System::Int32>(static_cast<System::Byte>(134)));
-			this->button7->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button7->Location = System::Drawing::Point(525, 23);
-			this->button7->Name = L"button7";
-			this->button7->Size = System::Drawing::Size(75, 57);
-			this->button7->TabIndex = 2;
-			this->button7->UseVisualStyleBackColor = false;
+			this->label2->AutoSize = true;
+			this->label2->Font = (gcnew System::Drawing::Font(L"Lucida Sans", 10.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label2->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
+			this->label2->Location = System::Drawing::Point(34, 67);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(148, 44);
+			this->label2->TabIndex = 6;
+			this->label2->Text = L"Cola de \r\nReproduccion";
+			this->label2->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
 			// FrontEnd
 			// 
@@ -365,9 +395,9 @@ namespace PAProyecto1CarlosDiego {
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(68)), static_cast<System::Int32>(static_cast<System::Byte>(68)),
 				static_cast<System::Int32>(static_cast<System::Byte>(68)));
 			this->ClientSize = System::Drawing::Size(1325, 649);
+			this->Controls->Add(this->panel2);
 			this->Controls->Add(this->panel1);
 			this->Controls->Add(this->listBox2);
-			this->Controls->Add(this->label1);
 			this->Controls->Add(this->pnlReproductor);
 			this->Controls->Add(this->pnlLateral);
 			this->Name = L"FrontEnd";
@@ -378,8 +408,10 @@ namespace PAProyecto1CarlosDiego {
 			this->pnlSubMenu->ResumeLayout(false);
 			this->pnlReproductor->ResumeLayout(false);
 			this->panel1->ResumeLayout(false);
+			this->panel1->PerformLayout();
+			this->panel2->ResumeLayout(false);
+			this->panel2->PerformLayout();
 			this->ResumeLayout(false);
-			this->PerformLayout();
 
 		}
 #pragma endregion
