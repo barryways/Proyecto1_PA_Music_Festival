@@ -1,60 +1,19 @@
 #pragma once
-//push
-//pop
 
-template <typename T>
+#include "Node.h"
 
-class Stack
+ref class Pila
 {
-private:
-	struct Node {
-		T* valorNodo;
-		Node* nodoSiguiente;
-
-		Node(T* valorNodo) {
-			this->valorNodo = valorNodo;
-			this->nodoSiguiente = nullptr;
-		}
-	};
-
-	int longitud;
-	Node* cabeza;
-
 public:
+	Nodo^ head;
+	Nodo^ tail;
 
-	Stack() {
-		this->cabeza = nullptr;
-		this->longitud = 0;
-	}
-
-	int longitudPila() {
-		return this->longitud;
-	}
-	
-	bool pilaVacia() {
-		return this->cabeza == nullptr;
-	}
-	void push(T* valorNodo) {
-		this->longitud++;
-		Node* nodoActual = new Node(valorNodo);
-		if (this->pilaVacia())
-		{
-			this->cabeza = nodoActual;
-			return;
-		}
-		nodoActual->nodoSiguiente = this->cabeza;
-		this->cabeza = nodoActual;
-
-	}
-	T* peek() {
-		return this->cabeza->valorNodo;
-	}
-	T* pop() {
-		T* itemNodo = this->cabeza->valorNodo;
-		this->cabeza = this->cabeza->nodoSiguiente;
-
-		this->longitud--;
-
-		return itemNodo;
-	}
+	void Push(String^ artist, String^ name);
+	int Count();
+	String^ GetNombre(int index);
+	String^ GetArtista(int index);
+	void Pop();
+	void PopAtEnd();
+	void PopAt(int index);
+	bool IsEmpty();
 };
