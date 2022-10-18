@@ -6,3 +6,7 @@ D:\carlo\Github Projects\Proyecto1_PA_Music_Festival\Debug\PA_Proyecto_1_Carlos_
 D:\carlo\Github Projects\Proyecto1_PA_Music_Festival\Debug\PAProyecto1CarlosDiego.FrontEnd.resources
 D:\carlo\Github Projects\Proyecto1_PA_Music_Festival\Debug\PA_Proyecto_1_Carlos_Diego.vcxproj.GenerateResource.cache
 D:\carlo\Github Projects\Proyecto1_PA_Music_Festival\Debug\PA_Proyecto_1_Carlos_Diego.exe
+C:\xampp\htdocs\HBlogs\Proyecto1_PA_Music_Festival\Debug\PA_Proyecto_1_Carlos_Diego.vcxproj.AssemblyReference.cache
+C:\xampp\htdocs\HBlogs\Proyecto1_PA_Music_Festival\Debug\PAProyecto1CarlosDiego.FrontEnd.resources
+C:\xampp\htdocs\HBlogs\Proyecto1_PA_Music_Festival\Debug\PA_Proyecto_1_Carlos_Diego.vcxproj.GenerateResource.cache
+C:\xampp\htdocs\HBlogs\Proyecto1_PA_Music_Festival\Debug\PA_Proyecto_1_Carlos_Diego.exe
