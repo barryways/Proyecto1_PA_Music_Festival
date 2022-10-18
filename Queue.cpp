@@ -1,7 +1,7 @@
 #include "Queue.h"
 
 
-void Cola::Push(String^ artist, String^ name) {
+void Cola::PushTo(String^ artist, String^ name) {
 	Nodo^ nodoActual = gcnew Nodo();
 	nodoActual->name = name;
 	nodoActual->artist = artist;

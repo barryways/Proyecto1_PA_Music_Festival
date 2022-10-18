@@ -123,7 +123,7 @@
     <ClCompile Include="FrontEnd.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="Queue.cpp" />
-    <ClCompile Include="Stack.cpp" />
+    <ClCompile Include="Pila.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FrontEnd.h">
@@ -131,7 +131,7 @@
     </ClInclude>
     <ClInclude Include="Node.h" />
     <ClInclude Include="Queue.h" />
-    <ClInclude Include="Stack.h" />
+    <ClInclude Include="Pila.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="FrontEnd.resx">
