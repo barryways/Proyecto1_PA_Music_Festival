@@ -1,6 +1,6 @@
   PAProyecto1CarlosDiego.FrontEnd.resources - Embedded, ContainedInManifestFile, 
 ImageRuntimeVersion: v4.0.30319
-Assembly PA_Proyecto_1_Carlos_Diego, Version=0.0.*, Culture=Invariant Language (Invariant Country): 
+Assembly PA_Proyecto_1_Carlos_Diego, Version=0.0.*, Culture=Todos los idiomas (todos los países): 
 	hash=SHA1, flags=PublicKey
 Assembly mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
 	hash=None, flags=None
@@ -20,3 +20,4 @@ Class PAProyecto1CarlosDiego.FrontEnd: AutoLayout, AnsiClass, Class, Public, Bef
   Fields:
     Int32 cantidadColumnas : Public
     Pila playlist : Public
+    Cola colaReproduccion : Public
