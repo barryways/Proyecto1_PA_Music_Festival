@@ -1,7 +1,10 @@
 ﻿  FrontEnd.cpp
-C:\xampp\htdocs\HBlogs\Proyecto1_PA_Music_Festival\FrontEnd.h(28,18): warning C4677: 'playlist': signature of non-private member contains assembly private type 'Pila'
-C:\xampp\htdocs\HBlogs\Proyecto1_PA_Music_Festival\Pila.h(4): message : see declaration of 'Pila'
-C:\xampp\htdocs\HBlogs\Proyecto1_PA_Music_Festival\FrontEnd.h(569,21): warning C4101: 'e': unreferenced local variable
-C:\xampp\htdocs\HBlogs\Proyecto1_PA_Music_Festival\FrontEnd.h(616,21): warning C4101: 'e': unreferenced local variable
-  FrontEnd.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
-  PA_Proyecto_1_Carlos_Diego.vcxproj -> C:\xampp\htdocs\HBlogs\Proyecto1_PA_Music_Festival\Debug\PA_Proyecto_1_Carlos_Diego.exe
+C:\Users\cdbarrientos\source\Proyecto1_PA_Music_Festival\FrontEnd.h(32,18): warning C4677: 'playlist': la signatura de un miembro no privado contiene un tipo privado de ensamblado de 'Pila'
+C:\Users\cdbarrientos\source\Proyecto1_PA_Music_Festival\Pila.h(4): message : vea la declaración de 'Pila'
+C:\Users\cdbarrientos\source\Proyecto1_PA_Music_Festival\FrontEnd.h(33,26): warning C4677: 'colaReproduccion': la signatura de un miembro no privado contiene un tipo privado de ensamblado de 'Cola'
+C:\Users\cdbarrientos\source\Proyecto1_PA_Music_Festival\Queue.h(5): message : vea la declaración de 'Cola'
+C:\Users\cdbarrientos\source\Proyecto1_PA_Music_Festival\FrontEnd.h(650,21): warning C4101: 'e': variable local sin referencia
+C:\Users\cdbarrientos\source\Proyecto1_PA_Music_Festival\FrontEnd.h(698,21): warning C4101: 'e': variable local sin referencia
+C:\Users\cdbarrientos\source\Proyecto1_PA_Music_Festival\FrontEnd.h(737,22): warning C4101: 'e': variable local sin referencia
+  FrontEnd.obj : se encontró un módulo MSIL; vinculación incremental deshabilitada para MSIL; ejecutando vínculo completo
+  PA_Proyecto_1_Carlos_Diego.vcxproj -> C:\Users\cdbarrientos\source\Proyecto1_PA_Music_Festival\Debug\PA_Proyecto_1_Carlos_Diego.exe
