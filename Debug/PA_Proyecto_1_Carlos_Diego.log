@@ -1,24 +1,7 @@
 ﻿  FrontEnd.cpp
-C:\xampp\htdocs\HBlogs\Proyecto1_PA_Music_Festival\FrontEnd.h(22,8): error C2872: 'Stack': ambiguous symbol
-C:\xampp\htdocs\HBlogs\Proyecto1_PA_Music_Festival\Stack.h(8,1): message : could be 'Stack'
-C:\xampp\htdocs\HBlogs\Proyecto1_PA_Music_Festival\FrontEnd.h(22,8): message : or       'System::Collections::Stack'
-C:\xampp\htdocs\HBlogs\Proyecto1_PA_Music_Festival\FrontEnd.h(22,15): error C3699: '^': cannot use this indirection on type 'Stack'
-C:\xampp\htdocs\HBlogs\Proyecto1_PA_Music_Festival\FrontEnd.h(22,15): message : compiler replacing '^' with '*' to continue parsing
-C:\xampp\htdocs\HBlogs\Proyecto1_PA_Music_Festival\FrontEnd.h(22,15): error C2872: 'Stack': ambiguous symbol
-C:\xampp\htdocs\HBlogs\Proyecto1_PA_Music_Festival\Stack.h(8,1): message : could be 'Stack'
-C:\xampp\htdocs\HBlogs\Proyecto1_PA_Music_Festival\FrontEnd.h(22,15): message : or       'System::Collections::Stack'
-C:\xampp\htdocs\HBlogs\Proyecto1_PA_Music_Festival\FrontEnd.h(22,15): error C2726: 'gcnew' may only be used to create an object with managed type
-C:\xampp\htdocs\HBlogs\Proyecto1_PA_Music_Festival\FrontEnd.h(22,15): error C2514: 'Stack': class template cannot be constructed
-C:\xampp\htdocs\HBlogs\Proyecto1_PA_Music_Festival\Stack.h(8): message : see declaration of 'Stack'
-C:\xampp\htdocs\HBlogs\Proyecto1_PA_Music_Festival\FrontEnd.cpp(3,7): error C2059: syntax error: 'using namespace'
-C:\xampp\htdocs\HBlogs\Proyecto1_PA_Music_Festival\FrontEnd.h(475,11): error C2065: 'playlist': undeclared identifier
-C:\xampp\htdocs\HBlogs\Proyecto1_PA_Music_Festival\FrontEnd.h(478,11): error C2065: 'playlist': undeclared identifier
-C:\xampp\htdocs\HBlogs\Proyecto1_PA_Music_Festival\FrontEnd.h(483,14): error C2065: 'archivoLineas': undeclared identifier
-C:\xampp\htdocs\HBlogs\Proyecto1_PA_Music_Festival\FrontEnd.h(492,20): error C2065: 'lstPlaylist': undeclared identifier
-C:\xampp\htdocs\HBlogs\Proyecto1_PA_Music_Festival\FrontEnd.h(492,33): error C2065: 'playlist': undeclared identifier
-C:\xampp\htdocs\HBlogs\Proyecto1_PA_Music_Festival\FrontEnd.h(492,6): error C3861: 'LlenarListBox': identifier not found
-C:\xampp\htdocs\HBlogs\Proyecto1_PA_Music_Festival\FrontEnd.h(452): error C2317: 'try' block starting on line '452' has no catch handlers
-C:\xampp\htdocs\HBlogs\Proyecto1_PA_Music_Festival\FrontEnd.h(4): fatal error C1075: '{': no matching token found
-  Queue.cpp
-  Stack.cpp
-  Generating Code...
+C:\xampp\htdocs\HBlogs\Proyecto1_PA_Music_Festival\FrontEnd.h(28,18): warning C4677: 'playlist': signature of non-private member contains assembly private type 'Pila'
+C:\xampp\htdocs\HBlogs\Proyecto1_PA_Music_Festival\Pila.h(4): message : see declaration of 'Pila'
+C:\xampp\htdocs\HBlogs\Proyecto1_PA_Music_Festival\FrontEnd.h(569,21): warning C4101: 'e': unreferenced local variable
+C:\xampp\htdocs\HBlogs\Proyecto1_PA_Music_Festival\FrontEnd.h(616,21): warning C4101: 'e': unreferenced local variable
+  FrontEnd.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
+  PA_Proyecto_1_Carlos_Diego.vcxproj -> C:\xampp\htdocs\HBlogs\Proyecto1_PA_Music_Festival\Debug\PA_Proyecto_1_Carlos_Diego.exe

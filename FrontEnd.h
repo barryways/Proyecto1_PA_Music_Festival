@@ -1,5 +1,6 @@
 ﻿#pragma once
-#include "Stack.h"
+#include "Pila.h"
+#include "Queue.h"
 
 namespace PAProyecto1CarlosDiego {
 
@@ -19,7 +20,15 @@ namespace PAProyecto1CarlosDiego {
 	public:
 		//variables globales
 		int cantidadColumnas;
-		Stack^ pila = gcnew Stack();
+	private: System::Windows::Forms::SaveFileDialog^ saveFileDialog1;
+	private: System::Windows::Forms::TextBox^ tbCancion;
+	private: System::Windows::Forms::TextBox^ tbArtista;
+	private: System::Windows::Forms::Button^ btnAgregar;
+
+	public:
+		Pila^ playlist = gcnew Pila();
+
+
 
 		FrontEnd(void)
 		{
@@ -71,7 +80,7 @@ namespace PAProyecto1CarlosDiego {
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -101,6 +110,10 @@ namespace PAProyecto1CarlosDiego {
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
 			this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->tbPath = (gcnew System::Windows::Forms::TextBox());
+			this->saveFileDialog1 = (gcnew System::Windows::Forms::SaveFileDialog());
+			this->tbCancion = (gcnew System::Windows::Forms::TextBox());
+			this->tbArtista = (gcnew System::Windows::Forms::TextBox());
+			this->btnAgregar = (gcnew System::Windows::Forms::Button());
 			this->pnlLateral->SuspendLayout();
 			this->pnlSubMenu->SuspendLayout();
 			this->pnlReproductor->SuspendLayout();
@@ -223,6 +236,7 @@ namespace PAProyecto1CarlosDiego {
 			this->btnGuardarPlaylist->Text = L"Guardar Playlist";
 			this->btnGuardarPlaylist->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->btnGuardarPlaylist->UseVisualStyleBackColor = true;
+			this->btnGuardarPlaylist->Click += gcnew System::EventHandler(this, &FrontEnd::btnGuardarPlaylist_Click);
 			// 
 			// btnAbrirArchivo
 			// 
@@ -347,11 +361,14 @@ namespace PAProyecto1CarlosDiego {
 			this->lbPlaylist->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(104)), static_cast<System::Int32>(static_cast<System::Byte>(106)),
 				static_cast<System::Int32>(static_cast<System::Byte>(108)));
 			this->lbPlaylist->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->lbPlaylist->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->lbPlaylist->ForeColor = System::Drawing::Color::White;
 			this->lbPlaylist->FormattingEnabled = true;
-			this->lbPlaylist->ItemHeight = 16;
+			this->lbPlaylist->ItemHeight = 21;
 			this->lbPlaylist->Location = System::Drawing::Point(408, 243);
 			this->lbPlaylist->Name = L"lbPlaylist";
-			this->lbPlaylist->Size = System::Drawing::Size(554, 288);
+			this->lbPlaylist->Size = System::Drawing::Size(554, 273);
 			this->lbPlaylist->TabIndex = 4;
 			// 
 			// lbCola
@@ -359,11 +376,14 @@ namespace PAProyecto1CarlosDiego {
 			this->lbCola->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(104)), static_cast<System::Int32>(static_cast<System::Byte>(106)),
 				static_cast<System::Int32>(static_cast<System::Byte>(108)));
 			this->lbCola->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->lbCola->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->lbCola->ForeColor = System::Drawing::Color::White;
 			this->lbCola->FormattingEnabled = true;
-			this->lbCola->ItemHeight = 16;
+			this->lbCola->ItemHeight = 21;
 			this->lbCola->Location = System::Drawing::Point(13, 133);
 			this->lbCola->Name = L"lbCola";
-			this->lbCola->Size = System::Drawing::Size(194, 400);
+			this->lbCola->Size = System::Drawing::Size(194, 399);
 			this->lbCola->TabIndex = 5;
 			// 
 			// panel1
@@ -411,10 +431,38 @@ namespace PAProyecto1CarlosDiego {
 			this->tbPath->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
 				static_cast<System::Int32>(static_cast<System::Byte>(224)));
 			this->tbPath->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->tbPath->Location = System::Drawing::Point(579, 218);
+			this->tbPath->Location = System::Drawing::Point(408, 522);
 			this->tbPath->Name = L"tbPath";
-			this->tbPath->Size = System::Drawing::Size(383, 15);
+			this->tbPath->Size = System::Drawing::Size(554, 15);
 			this->tbPath->TabIndex = 6;
+			// 
+			// tbCancion
+			// 
+			this->tbCancion->Location = System::Drawing::Point(544, 126);
+			this->tbCancion->Name = L"tbCancion";
+			this->tbCancion->Size = System::Drawing::Size(217, 22);
+			this->tbCancion->TabIndex = 7;
+			this->tbCancion->TextChanged += gcnew System::EventHandler(this, &FrontEnd::tbCancion_TextChanged);
+			// 
+			// tbArtista
+			// 
+			this->tbArtista->Location = System::Drawing::Point(285, 126);
+			this->tbArtista->Name = L"tbArtista";
+			this->tbArtista->Size = System::Drawing::Size(191, 22);
+			this->tbArtista->TabIndex = 8;
+			this->tbArtista->TextChanged += gcnew System::EventHandler(this, &FrontEnd::tbArtista_TextChanged);
+			// 
+			// btnAgregar
+			// 
+			this->btnAgregar->BackColor = System::Drawing::Color::White;
+			this->btnAgregar->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btnAgregar->Location = System::Drawing::Point(285, 171);
+			this->btnAgregar->Name = L"btnAgregar";
+			this->btnAgregar->Size = System::Drawing::Size(115, 32);
+			this->btnAgregar->TabIndex = 9;
+			this->btnAgregar->Text = L"Agregar";
+			this->btnAgregar->UseVisualStyleBackColor = false;
+			this->btnAgregar->Click += gcnew System::EventHandler(this, &FrontEnd::button2_Click);
 			// 
 			// FrontEnd
 			// 
@@ -424,6 +472,9 @@ namespace PAProyecto1CarlosDiego {
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(68)), static_cast<System::Int32>(static_cast<System::Byte>(68)),
 				static_cast<System::Int32>(static_cast<System::Byte>(68)));
 			this->ClientSize = System::Drawing::Size(1325, 649);
+			this->Controls->Add(this->btnAgregar);
+			this->Controls->Add(this->tbArtista);
+			this->Controls->Add(this->tbCancion);
 			this->Controls->Add(this->tbPath);
 			this->Controls->Add(this->panel2);
 			this->Controls->Add(this->panel1);
@@ -448,17 +499,30 @@ namespace PAProyecto1CarlosDiego {
 
 		}
 #pragma endregion
+		void csvAListBox(ListBox^ playlist, Pila^ stack) {
+			Nodo^ nodoActual = stack->head;
+			playlist->Items->Clear();
+			while (nodoActual != nullptr)
+			{
+				String^ cancionActual = nodoActual->name + "-" + nodoActual->artist;
+				playlist->Items->Add(cancionActual);
+				nodoActual = nodoActual->next;
+			}
+		}
+
+
 	private: System::Void btnAbrirArchivo_Click(System::Object^ sender, System::EventArgs^ e) {
 		try
 		{
-			//Se crea un filtro para a�adir los archivos
 			openFileDialog1->Filter = "Archivos separados por coma (csv) | *.csv";
 			openFileDialog1->FileName = "";
-			//Se verifica que se pudo abrir el archivo
 			if (openFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK)
 			{
 				tbPath->Text = openFileDialog1->FileName;
-
+				if(lbPlaylist->Items->Count>1)
+				{
+					lbPlaylist->Items->Clear();
+				}
 				array<String^>^ archivo = File::ReadAllLines(openFileDialog1->FileName);
 				if (archivo->Length > 0) {
 					for (int i = 0; i < archivo->Length; i++)
@@ -466,22 +530,22 @@ namespace PAProyecto1CarlosDiego {
 						array<String^>^ Columna = archivo[i]->Split(',');
 						for (int j = 0; j < Columna->Length; j++)
 						{
-							if (Columna[j] != "") {//Si el campo est� vac�o no se toma en cuenta
+							if (Columna[j] != "") {
 								array<String^>^ cancion = Columna[j]->Split('-');
-								if (cancion[0] != "")//Se verifica que haya nombre de la canci�n
+								if (cancion[0] != "")
 								{
-									if (cancion[1] == "")//Se verifica si hay artista
+									if (cancion[1] == "")
 									{
-										playlist->Add("desconocido", cancion[0]);//Se env�a "desconocido" si no hay artista
+										playlist->PushTo("desconocido", cancion[0]);
 									}
 									else {
-										playlist->Add(cancion[1], cancion[0]);
+										playlist->PushTo(cancion[1], cancion[0]);
 									}
 								}
 								else {
 									j = Columna->Length;
-									i = archivoLineas->Length;
-									MessageBox::Show("Nombre de cancin no vido",
+									i = archivo->Length;
+									MessageBox::Show("El nombre de la cancion no es valido",
 										"Error",
 										MessageBoxButtons::OK,
 										MessageBoxIcon::Warning);
@@ -489,8 +553,7 @@ namespace PAProyecto1CarlosDiego {
 							}
 						}
 					}
-					LlenarListBox(lstPlaylist, playlist);
-					//Se toma la primera fila del archivo y con este se definen el tama�o de la columna
+					csvAListBox(lbPlaylist, playlist);
 					array<String^>^ archivoColumna = archivo[0]->Split(',');
 					if (archivoColumna->Length > 0) {
 						cantidadColumnas = archivoColumna->Length;
@@ -498,11 +561,79 @@ namespace PAProyecto1CarlosDiego {
 				}
 			}
 			else {
-				MessageBox::Show("No se seleccion� ning�n archivo",
-					"Archivo no seleccionado",
+				MessageBox::Show("Porfavor elija un archivo para abrir",
+					"Error",
 					MessageBoxButtons::OK,
 					MessageBoxIcon::Error);
 			}
+		}
+		catch (Exception^ e)
+		{
+			MessageBox::Show("No se pudo abrir el archivo",
+				"Error",
+				MessageBoxButtons::OK,
+				MessageBoxIcon::Error);
+		}
+	};
+	private: System::Void btnGuardarPlaylist_Click(System::Object^ sender, System::EventArgs^ e) {
+		try
+		{
+			if (!playlist->IsEmpty())
+			{
+				saveFileDialog1->Filter = "Archivos separados por coma (csv) | *.csv";
+				if (saveFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK)
+				{
+					int i = 0;
+					String^ lineas = "";
+					int j = 0;
+					while (i < playlist->Count())
+					{
+						if (j < cantidadColumnas - 1)
+						{
+							lineas += "" + playlist->GetNombre(i) + "-" + playlist->GetArtista(i) + ",";
+						}
+						else {
+							lineas += "" + playlist->GetNombre(i) + "-" + playlist->GetArtista(i) + "\r\n";
+							j = 0;
+						}
+						j++;
+						i++;
+					}
+					//Se escribe el archivo con el nombre indicado y con los elementos.
+					File::WriteAllText(saveFileDialog1->FileName, lineas);
+					MessageBox::Show("Archivo guardado exitosamente"
+						, "Operaci�n exitosa"
+						, MessageBoxButtons::OK
+						, MessageBoxIcon::Information);
+				}
+			}
+			else {
+				MessageBox::Show("La playlist esta vacia",
+					"Error",
+					MessageBoxButtons::OK,
+					MessageBoxIcon::Exclamation);
+			}
+		}
+		catch (Exception^ e)
+		{
+			MessageBox::Show("No se pudo guardar el archivo"
+				, "Archivo no seleccionado"
+				, MessageBoxButtons::OK
+				, MessageBoxIcon::Information);
+		}
+	};
+
+	private: System::Void tbArtista_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+
+
 	}
+
+private: System::Void tbCancion_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+
+}
+
+private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+}
 };
 }
+

@@ -8,7 +8,7 @@ public:
 	Nodo^ head;
 	Nodo^ tail;
 
-	void Push(String^ artist, String^ name);
+	void PushTo(String^ artist, String^ name);
 	int Count();
 	String^ GetNombre(int index);
 	String^ GetArtista(int index);
