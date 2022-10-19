@@ -30,7 +30,36 @@ namespace PAProyecto1CarlosDiego {
 
 	public:
 		Pila^ playlist = gcnew Pila();
-		Cola^ colaReproduccion = gcnew Cola();
+	private: System::Windows::Forms::Label^ lblReproductor;
+	private: System::Windows::Forms::RadioButton^ rdbArtistaAscendente;
+	private: System::Windows::Forms::RadioButton^ rdbArtistaDescendente;
+	private: System::Windows::Forms::RadioButton^ rdbCancionAscendente;
+	private: System::Windows::Forms::RadioButton^ rdbCancionDescendente;
+	public:
+
+
+
+
+
+
+
+	private: System::Windows::Forms::Label^ lblOrdenar;
+
+	private: System::Windows::Forms::Label^ lblPlaylist;
+
+
+
+
+
+	public:
+
+
+
+
+
+
+
+		   Cola^ colaReproduccion = gcnew Cola();
 
 
 		FrontEnd(void)
@@ -55,9 +84,12 @@ namespace PAProyecto1CarlosDiego {
 	private: System::Windows::Forms::Panel^ pnlLateral;
 	protected:
 	private: System::Windows::Forms::Panel^ pnlSubMenu;
-	private: System::Windows::Forms::Button^ button5;
-	private: System::Windows::Forms::Button^ button4;
-	private: System::Windows::Forms::Button^ button3;
+	private: System::Windows::Forms::Button^ btnOrdenarArtista;
+
+	private: System::Windows::Forms::Button^ btnOrdenarNombre;
+
+	private: System::Windows::Forms::Button^ btnOrdenar;
+
 	private: System::Windows::Forms::Button^ btnGuardarPlaylist;
 
 	private: System::Windows::Forms::Button^ btnAbrirArchivo;
@@ -94,14 +126,21 @@ namespace PAProyecto1CarlosDiego {
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(FrontEnd::typeid));
 			this->pnlLateral = (gcnew System::Windows::Forms::Panel());
+			this->label5 = (gcnew System::Windows::Forms::Label());
+			this->label4 = (gcnew System::Windows::Forms::Label());
+			this->label3 = (gcnew System::Windows::Forms::Label());
+			this->btnAgregar = (gcnew System::Windows::Forms::Button());
 			this->pnlSubMenu = (gcnew System::Windows::Forms::Panel());
-			this->button5 = (gcnew System::Windows::Forms::Button());
-			this->button4 = (gcnew System::Windows::Forms::Button());
-			this->button3 = (gcnew System::Windows::Forms::Button());
+			this->btnOrdenarArtista = (gcnew System::Windows::Forms::Button());
+			this->btnOrdenarNombre = (gcnew System::Windows::Forms::Button());
+			this->btnOrdenar = (gcnew System::Windows::Forms::Button());
 			this->btnGuardarPlaylist = (gcnew System::Windows::Forms::Button());
+			this->tbCancion = (gcnew System::Windows::Forms::TextBox());
+			this->tbArtista = (gcnew System::Windows::Forms::TextBox());
 			this->btnAbrirArchivo = (gcnew System::Windows::Forms::Button());
 			this->pnlLogo = (gcnew System::Windows::Forms::Panel());
 			this->pnlReproductor = (gcnew System::Windows::Forms::Panel());
+			this->lblReproductor = (gcnew System::Windows::Forms::Label());
 			this->button7 = (gcnew System::Windows::Forms::Button());
 			this->button6 = (gcnew System::Windows::Forms::Button());
 			this->button1 = (gcnew System::Windows::Forms::Button());
@@ -114,12 +153,12 @@ namespace PAProyecto1CarlosDiego {
 			this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->tbPath = (gcnew System::Windows::Forms::TextBox());
 			this->saveFileDialog1 = (gcnew System::Windows::Forms::SaveFileDialog());
-			this->tbCancion = (gcnew System::Windows::Forms::TextBox());
-			this->tbArtista = (gcnew System::Windows::Forms::TextBox());
-			this->btnAgregar = (gcnew System::Windows::Forms::Button());
-			this->label3 = (gcnew System::Windows::Forms::Label());
-			this->label4 = (gcnew System::Windows::Forms::Label());
-			this->label5 = (gcnew System::Windows::Forms::Label());
+			this->rdbArtistaAscendente = (gcnew System::Windows::Forms::RadioButton());
+			this->rdbArtistaDescendente = (gcnew System::Windows::Forms::RadioButton());
+			this->rdbCancionAscendente = (gcnew System::Windows::Forms::RadioButton());
+			this->rdbCancionDescendente = (gcnew System::Windows::Forms::RadioButton());
+			this->lblOrdenar = (gcnew System::Windows::Forms::Label());
+			this->lblPlaylist = (gcnew System::Windows::Forms::Label());
 			this->pnlLateral->SuspendLayout();
 			this->pnlSubMenu->SuspendLayout();
 			this->pnlReproductor->SuspendLayout();
@@ -143,94 +182,145 @@ namespace PAProyecto1CarlosDiego {
 			this->pnlLateral->Controls->Add(this->pnlLogo);
 			this->pnlLateral->Dock = System::Windows::Forms::DockStyle::Left;
 			this->pnlLateral->Location = System::Drawing::Point(0, 0);
-			this->pnlLateral->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->pnlLateral->Margin = System::Windows::Forms::Padding(2);
 			this->pnlLateral->Name = L"pnlLateral";
 			this->pnlLateral->Size = System::Drawing::Size(188, 527);
 			this->pnlLateral->TabIndex = 0;
+			// 
+			// label5
+			// 
+			this->label5->AutoSize = true;
+			this->label5->Font = (gcnew System::Drawing::Font(L"Lucida Fax", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label5->ForeColor = System::Drawing::Color::White;
+			this->label5->Location = System::Drawing::Point(27, 326);
+			this->label5->Name = L"label5";
+			this->label5->Size = System::Drawing::Size(138, 18);
+			this->label5->TabIndex = 12;
+			this->label5->Text = L"Añadir a Playlist";
+			// 
+			// label4
+			// 
+			this->label4->AutoSize = true;
+			this->label4->Font = (gcnew System::Drawing::Font(L"Lucida Fax", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label4->ForeColor = System::Drawing::Color::White;
+			this->label4->Location = System::Drawing::Point(19, 413);
+			this->label4->Name = L"label4";
+			this->label4->Size = System::Drawing::Size(74, 18);
+			this->label4->TabIndex = 11;
+			this->label4->Text = L"Cancion";
+			// 
+			// label3
+			// 
+			this->label3->AutoSize = true;
+			this->label3->Font = (gcnew System::Drawing::Font(L"Lucida Fax", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label3->ForeColor = System::Drawing::Color::White;
+			this->label3->Location = System::Drawing::Point(19, 356);
+			this->label3->Name = L"label3";
+			this->label3->Size = System::Drawing::Size(60, 18);
+			this->label3->TabIndex = 10;
+			this->label3->Text = L"Artista";
+			// 
+			// btnAgregar
+			// 
+			this->btnAgregar->BackColor = System::Drawing::Color::White;
+			this->btnAgregar->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btnAgregar->Location = System::Drawing::Point(50, 477);
+			this->btnAgregar->Margin = System::Windows::Forms::Padding(2);
+			this->btnAgregar->Name = L"btnAgregar";
+			this->btnAgregar->Size = System::Drawing::Size(86, 35);
+			this->btnAgregar->TabIndex = 9;
+			this->btnAgregar->Text = L"Agregar";
+			this->btnAgregar->UseVisualStyleBackColor = false;
+			this->btnAgregar->Click += gcnew System::EventHandler(this, &FrontEnd::button2_Click);
 			// 
 			// pnlSubMenu
 			// 
 			this->pnlSubMenu->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(18)), static_cast<System::Int32>(static_cast<System::Byte>(18)),
 				static_cast<System::Int32>(static_cast<System::Byte>(18)));
-			this->pnlSubMenu->Controls->Add(this->button5);
-			this->pnlSubMenu->Controls->Add(this->button4);
-			this->pnlSubMenu->Controls->Add(this->button3);
+			this->pnlSubMenu->Controls->Add(this->btnOrdenarArtista);
+			this->pnlSubMenu->Controls->Add(this->btnOrdenarNombre);
+			this->pnlSubMenu->Controls->Add(this->btnOrdenar);
 			this->pnlSubMenu->Controls->Add(this->btnGuardarPlaylist);
 			this->pnlSubMenu->Dock = System::Windows::Forms::DockStyle::Top;
 			this->pnlSubMenu->Location = System::Drawing::Point(0, 165);
-			this->pnlSubMenu->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->pnlSubMenu->Margin = System::Windows::Forms::Padding(2);
 			this->pnlSubMenu->Name = L"pnlSubMenu";
 			this->pnlSubMenu->Size = System::Drawing::Size(188, 147);
 			this->pnlSubMenu->TabIndex = 1;
 			// 
-			// button5
+			// btnOrdenarArtista
 			// 
-			this->button5->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->button5->Dock = System::Windows::Forms::DockStyle::Top;
-			this->button5->FlatAppearance->BorderSize = 0;
-			this->button5->FlatAppearance->MouseDownBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(55)),
+			this->btnOrdenarArtista->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->btnOrdenarArtista->Dock = System::Windows::Forms::DockStyle::Top;
+			this->btnOrdenarArtista->FlatAppearance->BorderSize = 0;
+			this->btnOrdenarArtista->FlatAppearance->MouseDownBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(55)),
 				static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(179)));
-			this->button5->FlatAppearance->MouseOverBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(55)),
+			this->btnOrdenarArtista->FlatAppearance->MouseOverBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(55)),
 				static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(179)));
-			this->button5->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button5->Font = (gcnew System::Drawing::Font(L"Lucida Sans", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->btnOrdenarArtista->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btnOrdenarArtista->Font = (gcnew System::Drawing::Font(L"Lucida Sans", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button5->ForeColor = System::Drawing::Color::White;
-			this->button5->Location = System::Drawing::Point(0, 96);
-			this->button5->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
-			this->button5->Name = L"button5";
-			this->button5->Padding = System::Windows::Forms::Padding(26, 0, 0, 0);
-			this->button5->Size = System::Drawing::Size(188, 32);
-			this->button5->TabIndex = 4;
-			this->button5->Text = L"button5";
-			this->button5->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			this->button5->UseVisualStyleBackColor = true;
+			this->btnOrdenarArtista->ForeColor = System::Drawing::Color::White;
+			this->btnOrdenarArtista->Location = System::Drawing::Point(0, 96);
+			this->btnOrdenarArtista->Margin = System::Windows::Forms::Padding(2);
+			this->btnOrdenarArtista->Name = L"btnOrdenarArtista";
+			this->btnOrdenarArtista->Padding = System::Windows::Forms::Padding(26, 0, 0, 0);
+			this->btnOrdenarArtista->Size = System::Drawing::Size(188, 32);
+			this->btnOrdenarArtista->TabIndex = 4;
+			this->btnOrdenarArtista->Text = L"Ordenar Artista";
+			this->btnOrdenarArtista->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			this->btnOrdenarArtista->UseVisualStyleBackColor = true;
 			// 
-			// button4
+			// btnOrdenarNombre
 			// 
-			this->button4->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->button4->Dock = System::Windows::Forms::DockStyle::Top;
-			this->button4->FlatAppearance->BorderSize = 0;
-			this->button4->FlatAppearance->MouseDownBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(55)),
+			this->btnOrdenarNombre->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->btnOrdenarNombre->Dock = System::Windows::Forms::DockStyle::Top;
+			this->btnOrdenarNombre->FlatAppearance->BorderSize = 0;
+			this->btnOrdenarNombre->FlatAppearance->MouseDownBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(55)),
 				static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(179)));
-			this->button4->FlatAppearance->MouseOverBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(55)),
+			this->btnOrdenarNombre->FlatAppearance->MouseOverBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(55)),
 				static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(179)));
-			this->button4->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button4->Font = (gcnew System::Drawing::Font(L"Lucida Sans", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->btnOrdenarNombre->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btnOrdenarNombre->Font = (gcnew System::Drawing::Font(L"Lucida Sans", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button4->ForeColor = System::Drawing::Color::White;
-			this->button4->Location = System::Drawing::Point(0, 64);
-			this->button4->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
-			this->button4->Name = L"button4";
-			this->button4->Padding = System::Windows::Forms::Padding(26, 0, 0, 0);
-			this->button4->Size = System::Drawing::Size(188, 32);
-			this->button4->TabIndex = 3;
-			this->button4->Text = L"button4";
-			this->button4->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			this->button4->UseVisualStyleBackColor = true;
+			this->btnOrdenarNombre->ForeColor = System::Drawing::Color::White;
+			this->btnOrdenarNombre->Location = System::Drawing::Point(0, 64);
+			this->btnOrdenarNombre->Margin = System::Windows::Forms::Padding(2);
+			this->btnOrdenarNombre->Name = L"btnOrdenarNombre";
+			this->btnOrdenarNombre->Padding = System::Windows::Forms::Padding(26, 0, 0, 0);
+			this->btnOrdenarNombre->RightToLeft = System::Windows::Forms::RightToLeft::No;
+			this->btnOrdenarNombre->Size = System::Drawing::Size(188, 32);
+			this->btnOrdenarNombre->TabIndex = 3;
+			this->btnOrdenarNombre->Text = L"Ordenar Nombre";
+			this->btnOrdenarNombre->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			this->btnOrdenarNombre->UseVisualStyleBackColor = true;
 			// 
-			// button3
+			// btnOrdenar
 			// 
-			this->button3->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->button3->Dock = System::Windows::Forms::DockStyle::Top;
-			this->button3->FlatAppearance->BorderSize = 0;
-			this->button3->FlatAppearance->MouseDownBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(55)),
+			this->btnOrdenar->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->btnOrdenar->Dock = System::Windows::Forms::DockStyle::Top;
+			this->btnOrdenar->FlatAppearance->BorderSize = 0;
+			this->btnOrdenar->FlatAppearance->MouseDownBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(55)),
 				static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(179)));
-			this->button3->FlatAppearance->MouseOverBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(55)),
+			this->btnOrdenar->FlatAppearance->MouseOverBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(55)),
 				static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(179)));
-			this->button3->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button3->Font = (gcnew System::Drawing::Font(L"Lucida Sans", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->btnOrdenar->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btnOrdenar->Font = (gcnew System::Drawing::Font(L"Lucida Sans", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button3->ForeColor = System::Drawing::Color::White;
-			this->button3->Location = System::Drawing::Point(0, 32);
-			this->button3->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
-			this->button3->Name = L"button3";
-			this->button3->Padding = System::Windows::Forms::Padding(26, 0, 0, 0);
-			this->button3->Size = System::Drawing::Size(188, 32);
-			this->button3->TabIndex = 2;
-			this->button3->Text = L"button3";
-			this->button3->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			this->button3->UseVisualStyleBackColor = true;
+			this->btnOrdenar->ForeColor = System::Drawing::Color::White;
+			this->btnOrdenar->Location = System::Drawing::Point(0, 32);
+			this->btnOrdenar->Margin = System::Windows::Forms::Padding(2);
+			this->btnOrdenar->Name = L"btnOrdenar";
+			this->btnOrdenar->Padding = System::Windows::Forms::Padding(26, 0, 0, 0);
+			this->btnOrdenar->Size = System::Drawing::Size(188, 32);
+			this->btnOrdenar->TabIndex = 2;
+			this->btnOrdenar->Text = L"Ordenar";
+			this->btnOrdenar->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			this->btnOrdenar->UseVisualStyleBackColor = true;
+			this->btnOrdenar->Click += gcnew System::EventHandler(this, &FrontEnd::btnOrdenar_Click);
 			// 
 			// btnGuardarPlaylist
 			// 
@@ -246,7 +336,7 @@ namespace PAProyecto1CarlosDiego {
 				static_cast<System::Byte>(0)));
 			this->btnGuardarPlaylist->ForeColor = System::Drawing::Color::White;
 			this->btnGuardarPlaylist->Location = System::Drawing::Point(0, 0);
-			this->btnGuardarPlaylist->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->btnGuardarPlaylist->Margin = System::Windows::Forms::Padding(2);
 			this->btnGuardarPlaylist->Name = L"btnGuardarPlaylist";
 			this->btnGuardarPlaylist->Padding = System::Windows::Forms::Padding(26, 0, 0, 0);
 			this->btnGuardarPlaylist->Size = System::Drawing::Size(188, 32);
@@ -255,6 +345,24 @@ namespace PAProyecto1CarlosDiego {
 			this->btnGuardarPlaylist->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->btnGuardarPlaylist->UseVisualStyleBackColor = true;
 			this->btnGuardarPlaylist->Click += gcnew System::EventHandler(this, &FrontEnd::btnGuardarPlaylist_Click);
+			// 
+			// tbCancion
+			// 
+			this->tbCancion->Location = System::Drawing::Point(22, 443);
+			this->tbCancion->Margin = System::Windows::Forms::Padding(2);
+			this->tbCancion->Name = L"tbCancion";
+			this->tbCancion->Size = System::Drawing::Size(143, 20);
+			this->tbCancion->TabIndex = 7;
+			this->tbCancion->TextChanged += gcnew System::EventHandler(this, &FrontEnd::tbCancion_TextChanged);
+			// 
+			// tbArtista
+			// 
+			this->tbArtista->Location = System::Drawing::Point(22, 386);
+			this->tbArtista->Margin = System::Windows::Forms::Padding(2);
+			this->tbArtista->Name = L"tbArtista";
+			this->tbArtista->Size = System::Drawing::Size(143, 20);
+			this->tbArtista->TabIndex = 8;
+			this->tbArtista->TextChanged += gcnew System::EventHandler(this, &FrontEnd::tbArtista_TextChanged);
 			// 
 			// btnAbrirArchivo
 			// 
@@ -272,7 +380,7 @@ namespace PAProyecto1CarlosDiego {
 				static_cast<System::Byte>(0)));
 			this->btnAbrirArchivo->ForeColor = System::Drawing::Color::White;
 			this->btnAbrirArchivo->Location = System::Drawing::Point(0, 124);
-			this->btnAbrirArchivo->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->btnAbrirArchivo->Margin = System::Windows::Forms::Padding(2);
 			this->btnAbrirArchivo->Name = L"btnAbrirArchivo";
 			this->btnAbrirArchivo->Padding = System::Windows::Forms::Padding(8, 0, 0, 0);
 			this->btnAbrirArchivo->Size = System::Drawing::Size(188, 41);
@@ -289,7 +397,7 @@ namespace PAProyecto1CarlosDiego {
 			this->pnlLogo->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->pnlLogo->Dock = System::Windows::Forms::DockStyle::Top;
 			this->pnlLogo->Location = System::Drawing::Point(0, 0);
-			this->pnlLogo->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->pnlLogo->Margin = System::Windows::Forms::Padding(2);
 			this->pnlLogo->Name = L"pnlLogo";
 			this->pnlLogo->Size = System::Drawing::Size(188, 124);
 			this->pnlLogo->TabIndex = 0;
@@ -297,15 +405,28 @@ namespace PAProyecto1CarlosDiego {
 			// pnlReproductor
 			// 
 			this->pnlReproductor->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
+			this->pnlReproductor->Controls->Add(this->lblReproductor);
 			this->pnlReproductor->Controls->Add(this->button7);
 			this->pnlReproductor->Controls->Add(this->button6);
 			this->pnlReproductor->Controls->Add(this->button1);
 			this->pnlReproductor->Dock = System::Windows::Forms::DockStyle::Bottom;
 			this->pnlReproductor->Location = System::Drawing::Point(188, 452);
-			this->pnlReproductor->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->pnlReproductor->Margin = System::Windows::Forms::Padding(2);
 			this->pnlReproductor->Name = L"pnlReproductor";
 			this->pnlReproductor->Size = System::Drawing::Size(806, 75);
 			this->pnlReproductor->TabIndex = 1;
+			// 
+			// lblReproductor
+			// 
+			this->lblReproductor->AutoSize = true;
+			this->lblReproductor->Font = (gcnew System::Drawing::Font(L"Lucida Fax", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->lblReproductor->ForeColor = System::Drawing::Color::White;
+			this->lblReproductor->Location = System::Drawing::Point(265, 18);
+			this->lblReproductor->Name = L"lblReproductor";
+			this->lblReproductor->Size = System::Drawing::Size(138, 18);
+			this->lblReproductor->TabIndex = 13;
+			this->lblReproductor->Text = L"Reproduciendo:";
 			// 
 			// button7
 			// 
@@ -320,8 +441,8 @@ namespace PAProyecto1CarlosDiego {
 			this->button7->FlatAppearance->MouseOverBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(1)),
 				static_cast<System::Int32>(static_cast<System::Byte>(135)), static_cast<System::Int32>(static_cast<System::Byte>(134)));
 			this->button7->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button7->Location = System::Drawing::Point(394, 19);
-			this->button7->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->button7->Location = System::Drawing::Point(166, 18);
+			this->button7->Margin = System::Windows::Forms::Padding(2);
 			this->button7->Name = L"button7";
 			this->button7->Size = System::Drawing::Size(56, 46);
 			this->button7->TabIndex = 2;
@@ -340,8 +461,8 @@ namespace PAProyecto1CarlosDiego {
 			this->button6->FlatAppearance->MouseOverBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(1)),
 				static_cast<System::Int32>(static_cast<System::Byte>(135)), static_cast<System::Int32>(static_cast<System::Byte>(134)));
 			this->button6->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button6->Location = System::Drawing::Point(325, 19);
-			this->button6->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->button6->Location = System::Drawing::Point(97, 18);
+			this->button6->Margin = System::Windows::Forms::Padding(2);
 			this->button6->Name = L"button6";
 			this->button6->Size = System::Drawing::Size(58, 46);
 			this->button6->TabIndex = 1;
@@ -360,8 +481,8 @@ namespace PAProyecto1CarlosDiego {
 			this->button1->FlatAppearance->MouseOverBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(1)),
 				static_cast<System::Int32>(static_cast<System::Byte>(135)), static_cast<System::Int32>(static_cast<System::Byte>(134)));
 			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button1->Location = System::Drawing::Point(256, 19);
-			this->button1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->button1->Location = System::Drawing::Point(28, 18);
+			this->button1->Margin = System::Windows::Forms::Padding(2);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(56, 46);
 			this->button1->TabIndex = 0;
@@ -391,8 +512,8 @@ namespace PAProyecto1CarlosDiego {
 			this->lbPlaylist->ForeColor = System::Drawing::Color::White;
 			this->lbPlaylist->FormattingEnabled = true;
 			this->lbPlaylist->ItemHeight = 19;
-			this->lbPlaylist->Location = System::Drawing::Point(306, 211);
-			this->lbPlaylist->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->lbPlaylist->Location = System::Drawing::Point(388, 165);
+			this->lbPlaylist->Margin = System::Windows::Forms::Padding(2);
 			this->lbPlaylist->Name = L"lbPlaylist";
 			this->lbPlaylist->Size = System::Drawing::Size(416, 209);
 			this->lbPlaylist->TabIndex = 4;
@@ -408,7 +529,7 @@ namespace PAProyecto1CarlosDiego {
 			this->lbCola->FormattingEnabled = true;
 			this->lbCola->ItemHeight = 19;
 			this->lbCola->Location = System::Drawing::Point(10, 108);
-			this->lbCola->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->lbCola->Margin = System::Windows::Forms::Padding(2);
 			this->lbCola->Name = L"lbCola";
 			this->lbCola->Size = System::Drawing::Size(146, 323);
 			this->lbCola->TabIndex = 5;
@@ -421,7 +542,7 @@ namespace PAProyecto1CarlosDiego {
 			this->panel1->Controls->Add(this->lbCola);
 			this->panel1->Dock = System::Windows::Forms::DockStyle::Right;
 			this->panel1->Location = System::Drawing::Point(830, 0);
-			this->panel1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->panel1->Margin = System::Windows::Forms::Padding(2);
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(164, 452);
 			this->panel1->TabIndex = 0;
@@ -447,7 +568,7 @@ namespace PAProyecto1CarlosDiego {
 			this->panel2->Controls->Add(this->label1);
 			this->panel2->Dock = System::Windows::Forms::DockStyle::Top;
 			this->panel2->Location = System::Drawing::Point(188, 0);
-			this->panel2->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->panel2->Margin = System::Windows::Forms::Padding(2);
 			this->panel2->Name = L"panel2";
 			this->panel2->Size = System::Drawing::Size(642, 81);
 			this->panel2->TabIndex = 5;
@@ -461,78 +582,84 @@ namespace PAProyecto1CarlosDiego {
 			this->tbPath->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
 				static_cast<System::Int32>(static_cast<System::Byte>(224)));
 			this->tbPath->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->tbPath->Location = System::Drawing::Point(306, 424);
-			this->tbPath->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->tbPath->Location = System::Drawing::Point(388, 393);
+			this->tbPath->Margin = System::Windows::Forms::Padding(2);
 			this->tbPath->Name = L"tbPath";
+			this->tbPath->ReadOnly = true;
 			this->tbPath->Size = System::Drawing::Size(416, 13);
 			this->tbPath->TabIndex = 6;
 			// 
-			// tbCancion
+			// rdbArtistaAscendente
 			// 
-			this->tbCancion->Location = System::Drawing::Point(22, 443);
-			this->tbCancion->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
-			this->tbCancion->Name = L"tbCancion";
-			this->tbCancion->Size = System::Drawing::Size(143, 20);
-			this->tbCancion->TabIndex = 7;
-			this->tbCancion->TextChanged += gcnew System::EventHandler(this, &FrontEnd::tbCancion_TextChanged);
+			this->rdbArtistaAscendente->AutoSize = true;
+			this->rdbArtistaAscendente->ForeColor = System::Drawing::Color::White;
+			this->rdbArtistaAscendente->Location = System::Drawing::Point(216, 180);
+			this->rdbArtistaAscendente->Name = L"rdbArtistaAscendente";
+			this->rdbArtistaAscendente->Size = System::Drawing::Size(114, 17);
+			this->rdbArtistaAscendente->TabIndex = 7;
+			this->rdbArtistaAscendente->TabStop = true;
+			this->rdbArtistaAscendente->Text = L"Artista Ascendente";
+			this->rdbArtistaAscendente->UseVisualStyleBackColor = true;
 			// 
-			// tbArtista
+			// rdbArtistaDescendente
 			// 
-			this->tbArtista->Location = System::Drawing::Point(22, 386);
-			this->tbArtista->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
-			this->tbArtista->Name = L"tbArtista";
-			this->tbArtista->Size = System::Drawing::Size(143, 20);
-			this->tbArtista->TabIndex = 8;
-			this->tbArtista->TextChanged += gcnew System::EventHandler(this, &FrontEnd::tbArtista_TextChanged);
+			this->rdbArtistaDescendente->AutoSize = true;
+			this->rdbArtistaDescendente->ForeColor = System::Drawing::Color::White;
+			this->rdbArtistaDescendente->Location = System::Drawing::Point(216, 212);
+			this->rdbArtistaDescendente->Name = L"rdbArtistaDescendente";
+			this->rdbArtistaDescendente->Size = System::Drawing::Size(121, 17);
+			this->rdbArtistaDescendente->TabIndex = 8;
+			this->rdbArtistaDescendente->TabStop = true;
+			this->rdbArtistaDescendente->Text = L"Artista Descendente";
+			this->rdbArtistaDescendente->UseVisualStyleBackColor = true;
 			// 
-			// btnAgregar
+			// rdbCancionAscendente
 			// 
-			this->btnAgregar->BackColor = System::Drawing::Color::White;
-			this->btnAgregar->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->btnAgregar->Location = System::Drawing::Point(50, 477);
-			this->btnAgregar->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
-			this->btnAgregar->Name = L"btnAgregar";
-			this->btnAgregar->Size = System::Drawing::Size(86, 35);
-			this->btnAgregar->TabIndex = 9;
-			this->btnAgregar->Text = L"Agregar";
-			this->btnAgregar->UseVisualStyleBackColor = false;
-			this->btnAgregar->Click += gcnew System::EventHandler(this, &FrontEnd::button2_Click);
+			this->rdbCancionAscendente->AutoSize = true;
+			this->rdbCancionAscendente->ForeColor = System::Drawing::Color::White;
+			this->rdbCancionAscendente->Location = System::Drawing::Point(216, 244);
+			this->rdbCancionAscendente->Name = L"rdbCancionAscendente";
+			this->rdbCancionAscendente->Size = System::Drawing::Size(124, 17);
+			this->rdbCancionAscendente->TabIndex = 9;
+			this->rdbCancionAscendente->TabStop = true;
+			this->rdbCancionAscendente->Text = L"Cancion Ascendente";
+			this->rdbCancionAscendente->UseVisualStyleBackColor = true;
 			// 
-			// label3
+			// rdbCancionDescendente
 			// 
-			this->label3->AutoSize = true;
-			this->label3->Font = (gcnew System::Drawing::Font(L"Lucida Fax", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->rdbCancionDescendente->AutoSize = true;
+			this->rdbCancionDescendente->ForeColor = System::Drawing::Color::White;
+			this->rdbCancionDescendente->Location = System::Drawing::Point(216, 276);
+			this->rdbCancionDescendente->Name = L"rdbCancionDescendente";
+			this->rdbCancionDescendente->Size = System::Drawing::Size(131, 17);
+			this->rdbCancionDescendente->TabIndex = 10;
+			this->rdbCancionDescendente->TabStop = true;
+			this->rdbCancionDescendente->Text = L"Cancion Descendente";
+			this->rdbCancionDescendente->UseVisualStyleBackColor = true;
+			// 
+			// lblOrdenar
+			// 
+			this->lblOrdenar->AutoSize = true;
+			this->lblOrdenar->Font = (gcnew System::Drawing::Font(L"Lucida Fax", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label3->ForeColor = System::Drawing::Color::White;
-			this->label3->Location = System::Drawing::Point(19, 356);
-			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(60, 18);
-			this->label3->TabIndex = 10;
-			this->label3->Text = L"Artista";
+			this->lblOrdenar->ForeColor = System::Drawing::Color::White;
+			this->lblOrdenar->Location = System::Drawing::Point(212, 135);
+			this->lblOrdenar->Name = L"lblOrdenar";
+			this->lblOrdenar->Size = System::Drawing::Size(75, 18);
+			this->lblOrdenar->TabIndex = 14;
+			this->lblOrdenar->Text = L"Ordenar";
 			// 
-			// label4
+			// lblPlaylist
 			// 
-			this->label4->AutoSize = true;
-			this->label4->Font = (gcnew System::Drawing::Font(L"Lucida Fax", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->lblPlaylist->AutoSize = true;
+			this->lblPlaylist->Font = (gcnew System::Drawing::Font(L"Lucida Fax", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label4->ForeColor = System::Drawing::Color::White;
-			this->label4->Location = System::Drawing::Point(19, 413);
-			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(74, 18);
-			this->label4->TabIndex = 11;
-			this->label4->Text = L"Cancion";
-			// 
-			// label5
-			// 
-			this->label5->AutoSize = true;
-			this->label5->Font = (gcnew System::Drawing::Font(L"Lucida Fax", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label5->ForeColor = System::Drawing::Color::White;
-			this->label5->Location = System::Drawing::Point(27, 326);
-			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(138, 18);
-			this->label5->TabIndex = 12;
-			this->label5->Text = L"Añadir a Playlist";
+			this->lblPlaylist->ForeColor = System::Drawing::Color::White;
+			this->lblPlaylist->Location = System::Drawing::Point(385, 124);
+			this->lblPlaylist->Name = L"lblPlaylist";
+			this->lblPlaylist->Size = System::Drawing::Size(65, 18);
+			this->lblPlaylist->TabIndex = 15;
+			this->lblPlaylist->Text = L"Playlist";
 			// 
 			// FrontEnd
 			// 
@@ -542,6 +669,12 @@ namespace PAProyecto1CarlosDiego {
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(68)), static_cast<System::Int32>(static_cast<System::Byte>(68)),
 				static_cast<System::Int32>(static_cast<System::Byte>(68)));
 			this->ClientSize = System::Drawing::Size(994, 527);
+			this->Controls->Add(this->lblPlaylist);
+			this->Controls->Add(this->lblOrdenar);
+			this->Controls->Add(this->rdbCancionDescendente);
+			this->Controls->Add(this->rdbCancionAscendente);
+			this->Controls->Add(this->rdbArtistaDescendente);
+			this->Controls->Add(this->rdbArtistaAscendente);
 			this->Controls->Add(this->tbPath);
 			this->Controls->Add(this->panel2);
 			this->Controls->Add(this->panel1);
@@ -549,7 +682,7 @@ namespace PAProyecto1CarlosDiego {
 			this->Controls->Add(this->pnlReproductor);
 			this->Controls->Add(this->pnlLateral);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::SizableToolWindow;
-			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->Margin = System::Windows::Forms::Padding(2);
 			this->Name = L"FrontEnd";
 			this->Opacity = 0.98;
 			this->ShowIcon = false;
@@ -559,6 +692,7 @@ namespace PAProyecto1CarlosDiego {
 			this->pnlLateral->PerformLayout();
 			this->pnlSubMenu->ResumeLayout(false);
 			this->pnlReproductor->ResumeLayout(false);
+			this->pnlReproductor->PerformLayout();
 			this->panel1->ResumeLayout(false);
 			this->panel1->PerformLayout();
 			this->panel2->ResumeLayout(false);
@@ -568,6 +702,81 @@ namespace PAProyecto1CarlosDiego {
 
 		}
 #pragma endregion
+		void Swap(Nodo^ nodo1, Nodo^ nodo2) {//Intercambia los valores de los nodos
+			String^ name = nodo1->name;
+			String^ artista = nodo1->artist;
+			//Intercambio de nombre
+			nodo1->name = nodo2->name;
+			nodo2->name = name;
+			//Intercambio de artista
+			nodo1->artist = nodo2->artist;
+			nodo2->artist = artista;
+		}
+
+
+
+		void BubbleSort(Pila^ playlistBubble) {
+			int swapped;
+			Nodo^ izquierda;
+			Nodo^ derecha = playlistBubble->tail->next;
+			do
+			{
+				swapped = 0;
+				izquierda = playlistBubble->head;
+				while (izquierda->next != derecha)
+				{
+					if (rdbArtistaAscendente->Checked)//Orden ascendente artista
+					{
+						if (izquierda->artist[0] > izquierda->next->artist[0])
+						{
+							Swap(izquierda, izquierda->next);
+							swapped = 1;
+						}
+						if (izquierda->artist == "desconocido")//Si el dato es desconocido se envía hasta el final
+						{
+							Swap(izquierda, izquierda->next);
+							swapped = 1;
+						}
+						izquierda = izquierda->next;
+					}
+					else if (rdbArtistaDescendente->Checked)//Orden descendente artista
+					{
+						if (izquierda->artist[0] < izquierda->next->artist[0])
+						{
+							Swap(izquierda->next, izquierda);
+							swapped = 1;
+						}
+						if (izquierda->artist == "desconocido")
+						{
+							Swap(izquierda, izquierda->next);
+							swapped = 1;
+						}
+						izquierda = izquierda->next;
+					}
+					else if (rdbCancionAscendente->Checked)//Orden ascendente nombre
+					{
+						if (izquierda->name[0] > izquierda->next->name[0])
+						{
+							Swap(izquierda->next, izquierda);
+							swapped = 1;
+						}
+						izquierda = izquierda->next;
+					}
+					else if (rdbCancionDescendente->Checked)//Orden descendente nombre
+					{
+						if (izquierda->name[0] < izquierda->next->name[0])
+						{
+							Swap(izquierda->next, izquierda);
+							swapped = 1;
+						}
+						izquierda = izquierda->next;//Se pasa al siguiente elemento
+					}
+				}
+				derecha = izquierda;
+			} while (swapped);
+		}
+
+
 		void meterAListBoxPila(ListBox^ playlist, Pila^ stack) {
 			Nodo^ nodoActual = stack->head;
 			playlist->Items->Clear();
@@ -742,6 +951,33 @@ namespace PAProyecto1CarlosDiego {
 					, MessageBoxIcon::Error);
 			}
 		}
-	};
+	private: System::Void button2_Click_1(System::Object^ sender, System::EventArgs^ e) {
+
+	}
+private: System::Void btnOrdenar_Click(System::Object^ sender, System::EventArgs^ e) {
+	try
+	{
+		if (rdbArtistaAscendente->Checked || rdbArtistaDescendente->Checked || rdbCancionAscendente->Checked || rdbCancionDescendente->Checked)
+		{
+			//Se verifica que se haya seleccionado una opción de ordenamiento.
+			BubbleSort(playlist);
+			meterAListBoxPila(lbPlaylist, playlist);
+		}
+		else {
+			MessageBox::Show("Selecciona una opcion para poder ordenar.",
+				"Error",
+				MessageBoxButtons::OK,
+				MessageBoxIcon::Exclamation);
+		}
+	}
+	catch (Exception^ e)
+	{
+		MessageBox::Show("No se puede ordenar la playlist",
+			"Error",
+			MessageBoxButtons::OK,
+			MessageBoxIcon::Error);
+	}
+}
+};
 }
 
