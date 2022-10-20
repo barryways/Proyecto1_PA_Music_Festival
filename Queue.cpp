@@ -18,15 +18,9 @@ void Cola::PushTo(String^ artist, String^ name) {
 
 int Cola::Count() {
 	int cantidadNodos = 0;
-	Nodo^ nodoActual = gcnew Nodo();
-	while (!IsEmpty())
+	for (Nodo^ i = head; i != nullptr; i = i->next)
 	{
-		if (nodoActual == nullptr)
-		{
-			return cantidadNodos;
-		}
 		cantidadNodos++;
-		nodoActual = nodoActual->next;
 	}
 	return cantidadNodos;
 }

@@ -1,16 +1,5 @@
-﻿  FrontEnd.cpp
-C:\Users\cdbarrientos\source\Proyecto1_PA_Music_Festival\FrontEnd.h(24,25): warning C4677: 'colaReproduccion': la signatura de un miembro no privado contiene un tipo privado de ensamblado de 'Cola'
-C:\Users\cdbarrientos\source\Proyecto1_PA_Music_Festival\Queue.h(5): message : vea la declaración de 'Cola'
-C:\Users\cdbarrientos\source\Proyecto1_PA_Music_Festival\FrontEnd.h(25,17): warning C4677: 'playlist': la signatura de un miembro no privado contiene un tipo privado de ensamblado de 'Pila'
-C:\Users\cdbarrientos\source\Proyecto1_PA_Music_Festival\Pila.h(4): message : vea la declaración de 'Pila'
-C:\Users\cdbarrientos\source\Proyecto1_PA_Music_Festival\FrontEnd.h(26,18): warning C4677: 'historial': la signatura de un miembro no privado contiene un tipo privado de ensamblado de 'Pila'
-C:\Users\cdbarrientos\source\Proyecto1_PA_Music_Festival\Pila.h(4): message : vea la declaración de 'Pila'
-C:\Users\cdbarrientos\source\Proyecto1_PA_Music_Festival\FrontEnd.h(900,21): warning C4101: 'e': variable local sin referencia
-C:\Users\cdbarrientos\source\Proyecto1_PA_Music_Festival\FrontEnd.h(947,21): warning C4101: 'e': variable local sin referencia
-C:\Users\cdbarrientos\source\Proyecto1_PA_Music_Festival\FrontEnd.h(986,22): warning C4101: 'e': variable local sin referencia
-C:\Users\cdbarrientos\source\Proyecto1_PA_Music_Festival\FrontEnd.h(1013,20): warning C4101: 'e': variable local sin referencia
-C:\Users\cdbarrientos\source\Proyecto1_PA_Music_Festival\FrontEnd.h(1060,20): warning C4101: 'e': variable local sin referencia
-C:\Users\cdbarrientos\source\Proyecto1_PA_Music_Festival\FrontEnd.h(1103,20): warning C4101: 'e': variable local sin referencia
-C:\Users\cdbarrientos\source\Proyecto1_PA_Music_Festival\FrontEnd.h(1138,20): warning C4101: 'e': variable local sin referencia
-  FrontEnd.obj : se encontró un módulo MSIL; vinculación incremental deshabilitada para MSIL; ejecutando vínculo completo
-  PA_Proyecto_1_Carlos_Diego.vcxproj -> C:\Users\cdbarrientos\source\Proyecto1_PA_Music_Festival\Debug\PA_Proyecto_1_Carlos_Diego.exe
+﻿  Queue.cpp
+C:\xampp\htdocs\HBlogs\Proyecto1_PA_Music_Festival\Queue.cpp(44): warning C4715: 'Cola::GetNombre': not all control paths return a value
+C:\xampp\htdocs\HBlogs\Proyecto1_PA_Music_Festival\Queue.cpp(60): warning C4715: 'Cola::GetArtista': not all control paths return a value
+  FrontEnd.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
+  PA_Proyecto_1_Carlos_Diego.vcxproj -> C:\xampp\htdocs\HBlogs\Proyecto1_PA_Music_Festival\Debug\PA_Proyecto_1_Carlos_Diego.exe
