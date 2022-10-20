@@ -18,8 +18,15 @@ namespace PAProyecto1CarlosDiego {
 	public ref class FrontEnd : public System::Windows::Forms::Form
 	{
 	public:
-		//variables globales
-		int cantidadColumnas;
+	//variables globales
+	int cantidadColumnas;
+	int posicionCola;
+	Cola^ colaReproduccion = gcnew Cola();
+	Pila^ playlist = gcnew Pila();
+	Pila^ historial = gcnew Pila();
+
+
+
 	private: System::Windows::Forms::SaveFileDialog^ saveFileDialog1;
 	private: System::Windows::Forms::TextBox^ tbCancion;
 	private: System::Windows::Forms::TextBox^ tbArtista;
@@ -27,9 +34,7 @@ namespace PAProyecto1CarlosDiego {
 	private: System::Windows::Forms::Label^ label5;
 	private: System::Windows::Forms::Label^ label4;
 	private: System::Windows::Forms::Label^ label3;
-
 	public:
-		Pila^ playlist = gcnew Pila();
 	private: System::Windows::Forms::Label^ lblReproductor;
 	private: System::Windows::Forms::RadioButton^ rdbArtistaAscendente;
 	private: System::Windows::Forms::RadioButton^ rdbArtistaDescendente;
@@ -44,6 +49,13 @@ namespace PAProyecto1CarlosDiego {
 
 
 	private: System::Windows::Forms::Label^ lblOrdenar;
+	private: System::Windows::Forms::Button^ btnBorrar;
+	private: System::Windows::Forms::Button^ btnSincronizar;
+	private: System::Windows::Forms::Label^ lblPrevisualizar;
+	private: System::Windows::Forms::Button^ btnReproducirPlaylist;
+	private: System::Windows::Forms::Panel^ pnlLateral1;
+	private: System::Windows::Forms::Panel^ panel3;
+
 
 	private: System::Windows::Forms::Label^ lblPlaylist;
 
@@ -59,7 +71,7 @@ namespace PAProyecto1CarlosDiego {
 
 
 
-		   Cola^ colaReproduccion = gcnew Cola();
+		   
 
 
 		FrontEnd(void)
@@ -90,9 +102,7 @@ namespace PAProyecto1CarlosDiego {
 
 	private: System::Windows::Forms::Button^ btnOrdenar;
 
-	private: System::Windows::Forms::Button^ btnGuardarPlaylist;
-
-	private: System::Windows::Forms::Button^ btnAbrirArchivo;
+	private: System::Windows::Forms::Button^ btnGuardarPlaylist;	private: System::Windows::Forms::Button^ btnAbrirArchivo;
 
 	private: System::Windows::Forms::Panel^ pnlLogo;
 	private: System::Windows::Forms::Panel^ pnlReproductor;
@@ -714,19 +724,37 @@ namespace PAProyecto1CarlosDiego {
 			this->PerformLayout();
 
 		}
+
 #pragma endregion
-		void Swap(Nodo^ nodo1, Nodo^ nodo2) {//Intercambia los valores de los nodos
+		void Swap(Nodo^ nodo1, Nodo^ nodo2) {
 			String^ name = nodo1->name;
 			String^ artista = nodo1->artist;
-			//Intercambio de nombre
 			nodo1->name = nodo2->name;
 			nodo2->name = name;
-			//Intercambio de artista
 			nodo1->artist = nodo2->artist;
 			nodo2->artist = artista;
 		}
 
-
+		bool rdbCheck() {
+			if (rdbArtistaAscendente->Checked || rdbArtistaDescendente->Checked || rdbCancionAscendente->Checked || rdbCancionDescendente->Checked)
+			{
+				return true;
+			}
+			return false;
+		}
+		void pasarAPlaylist() {
+			while (!colaReproduccion->IsEmpty())
+			{
+				String^ nombreCancion = colaReproduccion->GetNombre(0);
+				String^ nombreArtista = colaReproduccion->GetArtista(0);
+				playlist->PushTo(nombreArtista, nombreCancion);
+				colaReproduccion->Pop();
+			}
+			if (rdbCheck())
+			{
+				BubbleSort(playlist);
+			}
+		}
 
 		void BubbleSort(Pila^ playlistBubble) {
 			int swapped;
@@ -745,14 +773,14 @@ namespace PAProyecto1CarlosDiego {
 							Swap(izquierda, izquierda->next);
 							swapped = 1;
 						}
-						if (izquierda->artist == "desconocido")//Si el dato es desconocido se envía hasta el final
+						if (izquierda->artist == "desconocido")
 						{
 							Swap(izquierda, izquierda->next);
 							swapped = 1;
 						}
 						izquierda = izquierda->next;
 					}
-					else if (rdbArtistaDescendente->Checked)//Orden descendente artista
+					else if (rdbArtistaDescendente->Checked)
 					{
 						if (izquierda->artist[0] < izquierda->next->artist[0])
 						{
@@ -766,7 +794,7 @@ namespace PAProyecto1CarlosDiego {
 						}
 						izquierda = izquierda->next;
 					}
-					else if (rdbCancionAscendente->Checked)//Orden ascendente nombre
+					else if (rdbCancionAscendente->Checked)
 					{
 						if (izquierda->name[0] > izquierda->next->name[0])
 						{
@@ -775,14 +803,14 @@ namespace PAProyecto1CarlosDiego {
 						}
 						izquierda = izquierda->next;
 					}
-					else if (rdbCancionDescendente->Checked)//Orden descendente nombre
+					else if (rdbCancionDescendente->Checked)
 					{
 						if (izquierda->name[0] < izquierda->next->name[0])
 						{
 							Swap(izquierda->next, izquierda);
 							swapped = 1;
 						}
-						izquierda = izquierda->next;//Se pasa al siguiente elemento
+						izquierda = izquierda->next;
 					}
 				}
 				derecha = izquierda;
@@ -885,33 +913,32 @@ namespace PAProyecto1CarlosDiego {
 				saveFileDialog1->Filter = "Archivos separados por coma (csv) | *.csv";
 				if (saveFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK)
 				{
-					int i = 0;
-					int j = 0;
+					int contadorPosiciones = 0;
+					int contadorColumnas = 0;
 					String^ lineas = "";
 					
-					while (i < playlist->Count())
+					while (contadorPosiciones < playlist->Count())
 					{
-						if (j < cantidadColumnas - 1)
+						if (contadorColumnas < cantidadColumnas - 1)
 						{
-							lineas += "" + playlist->GetNombre(i) + "-" + playlist->GetArtista(i) + ",";
+							lineas += "" + playlist->GetNombre(contadorPosiciones) + "-" + playlist->GetArtista(contadorPosiciones) + ",";
 						}
 						else {
-							lineas += "" + playlist->GetNombre(i) + "-" + playlist->GetArtista(i) + "\r\n";
-							j = 0;
+							lineas += "" + playlist->GetNombre(contadorPosiciones) + "-" + playlist->GetArtista(contadorPosiciones) + "\r\n";
+							contadorColumnas = 0;
 						}
-						j++;
-						i++;
+						contadorColumnas++;
+						contadorPosiciones++;
 					}
-					//Se escribe el archivo con el nombre indicado y con los elementos.
 					File::WriteAllText(saveFileDialog1->FileName, lineas);
 					MessageBox::Show("Archivo guardado exitosamente"
-						, "Operacion exitosa"
+						, "Operacion Realizada"
 						, MessageBoxButtons::OK
 						, MessageBoxIcon::Information);
 				}
 			}
 			else {
-				MessageBox::Show("La playlist esta vacia",
+				MessageBox::Show("La playlist no se puede guardar porque esta vacia",
 					"Error",
 					MessageBoxButtons::OK,
 					MessageBoxIcon::Exclamation);
@@ -970,7 +997,7 @@ namespace PAProyecto1CarlosDiego {
 private: System::Void btnOrdenar_Click(System::Object^ sender, System::EventArgs^ e) {
 	try
 	{
-		if (rdbArtistaAscendente->Checked || rdbArtistaDescendente->Checked || rdbCancionAscendente->Checked || rdbCancionDescendente->Checked)
+		if (rdbCheck())
 		{
 			//Se verifica que se haya seleccionado una opción de ordenamiento.
 			BubbleSort(playlist);
@@ -992,6 +1019,96 @@ private: System::Void btnOrdenar_Click(System::Object^ sender, System::EventArgs
 	}
 }
 private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (!colaReproduccion->IsEmpty())
+	{
+		String^ nombre = colaReproduccion->GetNombre(posicionCola);
+		String^ artista = colaReproduccion->GetArtista(posicionCola);
+
+		lblReproductor->Text = "Reproduciendo: " + nombre + "-" + artista;
+
+		colaReproduccion->PopAt(posicionCola);
+		meterAListBoxCola(lbCola, colaReproduccion);
+	}
+	else {
+		lblReproductor->Text = "Aun no hay ninguna cancion";
+		MessageBox::Show("La cola de reproducción esta vacia",
+			"Error",
+			MessageBoxButtons::OK,
+			MessageBoxIcon::Exclamation);
+	}
+}
+private: System::Void btnNext_Click(System::Object^ sender, System::EventArgs^ e) {
+	try
+	{
+		if (!colaReproduccion->IsEmpty())
+		{
+			posicionCola++;
+			if (posicionCola > colaReproduccion->Count() - 1)
+			{
+				posicionCola = 0;
+			}
+			String ^ textoLabel ="Previsualizando: " + colaReproduccion->GetNombre(posicionCola) + "-" + colaReproduccion->GetArtista(posicionCola);
+			lblPrevisualizar->Text = textoLabel;
+		}
+		else {
+			MessageBox::Show("No se pudo cambiar a la siguiente cancion porque no hay canciones",
+				"Error",
+				MessageBoxButtons::OK,
+				MessageBoxIcon::Error);
+		}
+	}
+	catch (Exception^ e)
+	{
+		MessageBox::Show("No se pudo cambiar a la siguiente cancion",
+			"Error",
+			MessageBoxButtons::OK,
+			MessageBoxIcon::Error);
+	}
+}
+private: System::Void btnBorrar_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (!colaReproduccion->IsEmpty())
+	{
+		colaReproduccion->PopAt(posicionCola);
+		meterAListBoxCola(lbCola, colaReproduccion);
+		lblReproductor->Text = "";
+	}
+	else {
+		MessageBox::Show("La fila de reproducción esta vacia",
+			"Error",
+			MessageBoxButtons::OK,
+			MessageBoxIcon::Exclamation);
+	}
+}
+private: System::Void btnBack_Click(System::Object^ sender, System::EventArgs^ e) {
+	try
+	{
+		if (!colaReproduccion->IsEmpty())
+		{
+			posicionCola--;
+			if (posicionCola < 0)
+			{
+				posicionCola = colaReproduccion->Count() - 1;
+			}
+			
+			String^ textoLabel = "Previsualizando: " + colaReproduccion->GetNombre(posicionCola) + "-" + colaReproduccion->GetArtista(posicionCola);
+			lblPrevisualizar->Text = textoLabel;
+		}
+		else {
+			MessageBox::Show("La cola de reproducción esta vacia",
+				"Error",
+				MessageBoxButtons::OK,
+				MessageBoxIcon::Error);
+		}
+	}
+	catch (Exception^ e)
+	{
+		MessageBox::Show("No se pudo reproducir la cancion anterior",
+			"Error",
+			MessageBoxButtons::OK,
+			MessageBoxIcon::Error);
+	}
+}
+private: System::Void btnReproducirPlaylist_Click(System::Object^ sender, System::EventArgs^ e) {
 	try
 	{
 		if (!playlist->IsEmpty())
@@ -1000,15 +1117,22 @@ private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e
 			String^ nombreArtista = playlist->GetArtista(0);
 
 			lblReproductor->Text = "Reproduciendo: " + nombreCancion + " - " + nombreArtista;
-
 			playlist->Pop();
 			meterAListBoxPila(lbPlaylist, playlist);
 		}
 		else {
-			MessageBox::Show("No se pudo reproducir la cancion porque no hay playlist",
-				"Error",
-				MessageBoxButtons::OK,
-				MessageBoxIcon::Error);
+			if (!colaReproduccion->IsEmpty())
+			{
+				pasarAPlaylist();
+				meterAListBoxPila(lbPlaylist, playlist);
+				meterAListBoxCola(lbCola, colaReproduccion);
+			}
+			else {
+				MessageBox::Show("No se pudo reproducir algo, porque la playlist y la cola de reproduccion estan vacias",
+					"Error",
+					MessageBoxButtons::OK,
+					MessageBoxIcon::Error);
+			}
 		}
 	}
 	catch (Exception^ e)
@@ -1019,27 +1143,10 @@ private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e
 			MessageBoxIcon::Error);
 	}
 }
-private: System::Void btnNext_Click(System::Object^ sender, System::EventArgs^ e) {
-	try
-	{
-		if (!playlist->IsEmpty())
-		{
-			if (playlist.next)
-			{
+private: System::Void pnlSubMenu_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+}
+private: System::Void btnBack_Click_1(System::Object^ sender, System::EventArgs^ e) {
 
-			}
-		}
-		else {
-
-		}
-	}
-	catch (Exception^ e)
-	{
-		MessageBox::Show("No se pudo cambiar a la siguiente cancion",
-			"Error",
-			MessageBoxButtons::OK,
-			MessageBoxIcon::Error);
-	}
 }
 };
 }

@@ -21,6 +21,10 @@ int Cola::Count() {
 	Nodo^ nodoActual = gcnew Nodo();
 	while (!IsEmpty())
 	{
+		if (nodoActual == nullptr)
+		{
+			return cantidadNodos;
+		}
 		cantidadNodos++;
 		nodoActual = nodoActual->next;
 	}
@@ -36,6 +40,7 @@ String^ Cola::GetNombre(int index) {
 
 		while (posicion < index)
 		{
+
 			nodoActual = nodoActual->next;
 			posicion++;
 		}
