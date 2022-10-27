@@ -20,6 +20,9 @@ Class PAProyecto1CarlosDiego.FrontEnd: AutoLayout, AnsiClass, Class, Public, Bef
   Fields:
     Int32 cantidadColumnas : Public
     Int32 posicionCola : Public
+    Int32 cantidadNodos : Public
     Cola colaReproduccion : Public
     Pila playlist : Public
     Pila playlistOriginal : Public
+    Pila playlistSinDesconocidos : Public
+    Pila playlistDesconocidos : Public
