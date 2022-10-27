@@ -21,9 +21,17 @@ namespace PAProyecto1CarlosDiego {
 	//variables globales
 	int cantidadColumnas;
 	int posicionCola;
+	int cantidadNodos;
+
 	Cola^ colaReproduccion = gcnew Cola();
 	Pila^ playlist = gcnew Pila();
 	Pila^ playlistOriginal = gcnew Pila();
+
+
+	Pila^ playlistSinDesconocidos = gcnew Pila();
+	Pila^ playlistDesconocidos = gcnew Pila();
+
+	
 
 
 
@@ -60,7 +68,7 @@ namespace PAProyecto1CarlosDiego {
 	private: System::Windows::Forms::Button^ btnSync;
 
 	private: System::ComponentModel::BackgroundWorker^ backgroundWorker1;
-	private: System::Windows::Forms::Button^ button1;
+
 
 
 	private: System::Windows::Forms::Label^ lblPlaylist;
@@ -184,7 +192,6 @@ namespace PAProyecto1CarlosDiego {
 			this->lbPlaylistOriginal = (gcnew System::Windows::Forms::ListBox());
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->backgroundWorker1 = (gcnew System::ComponentModel::BackgroundWorker());
-			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->pnlLateral->SuspendLayout();
 			this->pnlSubMenu->SuspendLayout();
 			this->pnlReproductor->SuspendLayout();
@@ -746,20 +753,6 @@ namespace PAProyecto1CarlosDiego {
 			this->label6->TabIndex = 17;
 			this->label6->Text = L"Playlist Original";
 			// 
-			// button1
-			// 
-			this->button1->BackColor = System::Drawing::Color::Transparent;
-			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button1->ForeColor = System::Drawing::Color::White;
-			this->button1->Location = System::Drawing::Point(337, 438);
-			this->button1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(144, 43);
-			this->button1->TabIndex = 14;
-			this->button1->Text = L"Sincronizar";
-			this->button1->UseVisualStyleBackColor = false;
-			this->button1->Click += gcnew System::EventHandler(this, &FrontEnd::button1_Click_1);
-			// 
 			// FrontEnd
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
@@ -768,7 +761,6 @@ namespace PAProyecto1CarlosDiego {
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(68)), static_cast<System::Int32>(static_cast<System::Byte>(68)),
 				static_cast<System::Int32>(static_cast<System::Byte>(68)));
 			this->ClientSize = System::Drawing::Size(1325, 649);
-			this->Controls->Add(this->button1);
 			this->Controls->Add(this->label6);
 			this->Controls->Add(this->lbPlaylistOriginal);
 			this->Controls->Add(this->lblPlaylist);
@@ -835,25 +827,30 @@ namespace PAProyecto1CarlosDiego {
 		}
 
 		void unknowVerified(Pila^ playlistOrdenada) {
-			int items = playlistOrdenada->Count();
-			Nodo^ nodoActual = playlistOrdenada->head;
-			while (nodoActual != nullptr)
+			int cantidadNodos = playlistOrdenada->Count();
+			for (int i = 0; i < cantidadNodos; i++)
 			{
-				if (nodoActual->artist=="Desconocido")
+				if (playlistOrdenada->GetArtista(i)=="Desconocido"|| playlistOrdenada->GetArtista(i) == "desconocido")
 				{
-					MessageBox::Show("Selecciona una opcion para poder ordenar.",
-						"Error",
-						MessageBoxButtons::OK,
-						MessageBoxIcon::Exclamation);
+					playlistDesconocidos->PushTo(playlistOrdenada->GetArtista(i), playlistOrdenada->GetNombre(i));
 				}
 				else {
-					MessageBox::Show("Selecciona una opcion para poder ordenar.",
-						"Error",
-						MessageBoxButtons::OK,
-						MessageBoxIcon::Exclamation);
+					playlistSinDesconocidos->PushTo(playlistOrdenada->GetArtista(i), playlistOrdenada->GetNombre(i));
 				}
-				nodoActual = nodoActual->next;
 			}
+			for (int i = 0; i < cantidadNodos; i++)
+			{
+				playlistOrdenada->Pop();
+			}
+			for (int i = 0; i < playlistSinDesconocidos->Count(); i++)
+			{
+				playlistOrdenada->PushTo(playlistSinDesconocidos->GetArtista(i), playlistSinDesconocidos->GetNombre(i));
+			}
+			for (int i = 0; i < playlistDesconocidos->Count(); i++)
+			{
+				playlistOrdenada->PushTo(playlistDesconocidos->GetArtista(i), playlistDesconocidos->GetNombre(i));
+			}
+			
 		}
 
 		void BubbleSort(Pila^ playlistBubble) {
@@ -915,6 +912,7 @@ namespace PAProyecto1CarlosDiego {
 				}
 				derecha = izquierda;
 			} while (swapped);
+			
 		}
 
 
@@ -968,11 +966,12 @@ namespace PAProyecto1CarlosDiego {
 									{
 										playlistOriginal->PushTo("Desconocido", cancion[0]);
 										playlist->PushTo("Desconocido", cancion[0]);
+										cantidadNodos++;
 									}
 									else {
 										playlistOriginal->PushTo(cancion[1], cancion[0]);
 										playlist->PushTo(cancion[1], cancion[0]);
-
+										cantidadNodos++;
 									}
 								}
 								else {
@@ -1106,16 +1105,17 @@ private: System::Void btnOrdenar_Click(System::Object^ sender, System::EventArgs
 	{
 		if (rdbCheck())
 		{
-			//Se verifica que se haya seleccionado una opción de ordenamiento.
+			lbPlaylist->Items->Clear();
 			BubbleSort(playlist);
 			unknowVerified(playlist);
 			meterAListBoxPila(lbPlaylist, playlist);
+			//meterAListBoxPila(lbPlaylist, playlist);
 		}
 		else {
-			MessageBox::Show("Selecciona una opcion para poder ordenar.",
+			MessageBox::Show("Selecciona una opcion de ordenamiento",
 				"Error",
 				MessageBoxButtons::OK,
-				MessageBoxIcon::Exclamation);
+				MessageBoxIcon::Warning);
 		}
 	}
 	catch (Exception^ e)
