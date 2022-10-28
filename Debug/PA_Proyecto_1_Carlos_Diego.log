@@ -1,1 +1,23 @@
-﻿  PA_Proyecto_1_Carlos_Diego.vcxproj -> C:\Users\cdbarrientos\source\Proyecto1_PA_Music_Festival\Debug\PA_Proyecto_1_Carlos_Diego.exe
+﻿  FrontEnd.cpp
+C:\xampp\htdocs\HBlogs\Proyecto1_PA_Music_Festival\FrontEnd.h(26,25): warning C4677: 'colaReproduccion': signature of non-private member contains assembly private type 'Cola'
+C:\xampp\htdocs\HBlogs\Proyecto1_PA_Music_Festival\Queue.h(5): message : see declaration of 'Cola'
+C:\xampp\htdocs\HBlogs\Proyecto1_PA_Music_Festival\FrontEnd.h(27,17): warning C4677: 'playlist': signature of non-private member contains assembly private type 'Pila'
+C:\xampp\htdocs\HBlogs\Proyecto1_PA_Music_Festival\Pila.h(4): message : see declaration of 'Pila'
+C:\xampp\htdocs\HBlogs\Proyecto1_PA_Music_Festival\FrontEnd.h(28,25): warning C4677: 'playlistOriginal': signature of non-private member contains assembly private type 'Pila'
+C:\xampp\htdocs\HBlogs\Proyecto1_PA_Music_Festival\Pila.h(4): message : see declaration of 'Pila'
+C:\xampp\htdocs\HBlogs\Proyecto1_PA_Music_Festival\FrontEnd.h(30,29): warning C4677: 'playlistDesconocidos': signature of non-private member contains assembly private type 'Pila'
+C:\xampp\htdocs\HBlogs\Proyecto1_PA_Music_Festival\Pila.h(4): message : see declaration of 'Pila'
+C:\xampp\htdocs\HBlogs\Proyecto1_PA_Music_Festival\FrontEnd.h(31,32): warning C4677: 'playlistSinDesconocidos': signature of non-private member contains assembly private type 'Pila'
+C:\xampp\htdocs\HBlogs\Proyecto1_PA_Music_Festival\Pila.h(4): message : see declaration of 'Pila'
+C:\xampp\htdocs\HBlogs\Proyecto1_PA_Music_Festival\FrontEnd.h(1014,21): warning C4101: 'e': unreferenced local variable
+C:\xampp\htdocs\HBlogs\Proyecto1_PA_Music_Festival\FrontEnd.h(1061,21): warning C4101: 'e': unreferenced local variable
+C:\xampp\htdocs\HBlogs\Proyecto1_PA_Music_Festival\FrontEnd.h(1102,22): warning C4101: 'e': unreferenced local variable
+C:\xampp\htdocs\HBlogs\Proyecto1_PA_Music_Festival\FrontEnd.h(1131,20): warning C4101: 'e': unreferenced local variable
+C:\xampp\htdocs\HBlogs\Proyecto1_PA_Music_Festival\FrontEnd.h(1160,20): warning C4101: 'e': unreferenced local variable
+C:\xampp\htdocs\HBlogs\Proyecto1_PA_Music_Festival\FrontEnd.h(1189,20): warning C4101: 'e': unreferenced local variable
+C:\xampp\htdocs\HBlogs\Proyecto1_PA_Music_Festival\FrontEnd.h(1221,20): warning C4101: 'e': unreferenced local variable
+C:\xampp\htdocs\HBlogs\Proyecto1_PA_Music_Festival\FrontEnd.h(1260,20): warning C4101: 'e': unreferenced local variable
+C:\xampp\htdocs\HBlogs\Proyecto1_PA_Music_Festival\FrontEnd.h(1299,20): warning C4101: 'e': unreferenced local variable
+C:\xampp\htdocs\HBlogs\Proyecto1_PA_Music_Festival\FrontEnd.h(1324,20): warning C4101: 'e': unreferenced local variable
+  FrontEnd.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
+  PA_Proyecto_1_Carlos_Diego.vcxproj -> C:\xampp\htdocs\HBlogs\Proyecto1_PA_Music_Festival\Debug\PA_Proyecto_1_Carlos_Diego.exe
